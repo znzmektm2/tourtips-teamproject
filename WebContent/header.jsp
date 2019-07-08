@@ -16,7 +16,7 @@
 				<div id="suggest" style="display: none"></div>
 			</div>
 			<h1>
-				<a href="#"><img src="img/origin.gif" alt="투어팁스"></a>
+				<a href="#"><img src="${pageContext.request.contextPath}/img/origin.gif" alt="투어팁스"></a>
 			</h1>
 			<div class="login">
 				<a href="#">로그인</a>

@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
 <title>Insert title here</title>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
 	<div class="visualWrap">
 		<div class="wrapper">
-			<h2>홍콩</h2>
+			<h2>${location.name}</h2>
 			<p>15:15:32 시차 <span>-1</span>시간</p>
 			<ul>
 				<li>
