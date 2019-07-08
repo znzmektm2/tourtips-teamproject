@@ -3,21 +3,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Tourtips</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>여행관광지 사이트</title>
 </head>
 <body>
-<h1>초기화면입니다!!</h1>
-<nav>
-</nav>
-<div>
-	<%-- <jsp:include file="list.jsp" /> --%>
-	
-	<a href="dest/hongkong"> 홍콩 </a><br>
-	<a href="dest/macau"> 마카오 </a><br>
-	<a href="dest/singapore"> 싱가포르 </a><br>
-	<a href="dest/bangkok"> 방콕 </a><br>
-	<a href="dest/hongkong/nara"> 나</a>
-	
-</div>
+	<%@ include file="header.jsp" %>
+	<%@ include file="container.jsp" %>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: Noto Sans KR;
+	src:
+		url(https://www.mohaji.com/src/assets/fonts/NotoSans-Light.e235e9.woff2)
+		format("woff2"),
+		url(https://www.mohaji.com/src/assets/fonts/NotoSans-Light.073411.woff)
+		format("woff");
+	font-weight: 300;
+	font-style: normal
+}
+
+@font-face {
+	font-family: Noto Sans KR;
+	src:
+		url(https://www.mohaji.com/src/assets/fonts/NotoSans-Regular.901ee8.woff2)
+		format("woff2"),
+		url(https://www.mohaji.com/src/assets/fonts/NotoSans-Regular.476563.woff)
+		format("woff");
+	font-weight: 400;
+	font-style: normal
+}
+
+@font-face {
+	font-family: Noto Sans KR;
+	src:
+		url(https://www.mohaji.com/src/assets/fonts/NotoSans-Bold.478591.woff2)
+		format("woff2"),
+		url(https://www.mohaji.com/src/assets/fonts/NotoSans-Bold.bcacd0.woff)
+		format("woff");
+	font-weight: 700;
+	font-style: normal
+}
+
+@font-face {
+	font-family: Noto Sans KR;
+	src:
+		url(https://www.mohaji.com/src/assets/fonts/NotoSans-Black.14c4b6.woff2)
+		format("woff2"),
+		url(https://www.mohaji.com/src/assets/fonts/NotoSans-Black.827c20.woff)
+		format("woff");
+	font-weight: 900;
+	font-style: normal
+}
+
+/* common */ 
+html {font-size:16px;}
+body{font-family: Noto Sans KR,sans-serif;font-size:16px;color:#222;line-height:1.5em;margin:0;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-text-size-adjust:none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;margin:0;padding:0;}
+button,p,ul,ol,input,textarea,dl,dt,dd{margin:0;padding:0;}
+li{list-style:none;}
+a{display:inline-block;text-decoration:none;color: #222;}
+img{border:0;}
+
+/* header */
+header{border-bottom:1px solid #ddd;}
+.innerWrap{margin:0 auto;position:relative;width:1090px;text-align:center;}
+.headerTop>div{position:absolute;display:inline-block;}
+.search{left:0;top:60px;width:218px;height:32px;border:1px solid #c1c1c1;border-radius:25px;}
+.search>form{height:100%;}
+#keyWord{position:absolute;left:14px;border:0;height:32px;outline: none;}
+#search_btn{position: absolute;top:3px;right:3px;width:27px;height:27px;text-indent: -9999px;border: 0 none;cursor: pointer;outline: none;background: url(../img/spr_ico_common.png) 5px 5px no-repeat;}
+h1{display:inline-block;}
+.login{right:0;top:60px;}
+
+/* visualWrap */
+.visualWrap{padding:50px 0;text-align: center;}
+.visualWrap ul{margin:0 auto;display:inline-block;font-size:0;color:#fff;}
+.visualWrap ul li{display:inline-block;vertical-align:middle;width:100px;height:100px;background:rgba(0,0,0,0.5);font-size:13px;}
+
+/* subWrap */
+.lnb{position: absolute;top:0;left:0;width:200px;border-top: 1px solid #999;}
+.lnb>ul>li{padding:5px 0;border-top: 1px solid #e5e5e5;}
+/* footer */
+footer{height:200px;background: #f1f1f1;}
+
