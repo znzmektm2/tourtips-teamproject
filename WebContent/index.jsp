@@ -12,7 +12,7 @@
 <div>
 	<%-- <jsp:include file="list.jsp" /> --%>
 	
-	<a href="dest/honkong"> 홍콩 </a><br>
+	<a href="dest/hongkong"> 홍콩 </a><br>
 	<a href="dest/macau"> 마카오 </a><br>
 	<a href="dest/singapore"> 싱가포르 </a><br>
 	<a href="dest/bangkok"> 방콕 </a><br>

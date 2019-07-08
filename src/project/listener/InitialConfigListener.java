@@ -6,6 +6,7 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import project.controller.Controller;
+import project.model.service.ProjectService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,6 +41,9 @@ public class InitialConfigListener implements ServletContextListener {
         /**
          * 서버에 저장될 기본 정보 저장.
          */
+        ProjectService service = new ProjectService();
+        application.setAttribute("CityAll", service.selectAllCity());
+        application.setAttribute("PlaceAll", service.selectAllPlace()); 
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
