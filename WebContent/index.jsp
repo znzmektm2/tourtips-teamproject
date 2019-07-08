@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Tourtips</title>
 </head>
 <body>
 <h1>초기화면입니다!!</h1>
@@ -11,6 +11,13 @@
 </nav>
 <div>
 	<%-- <jsp:include file="list.jsp" /> --%>
+	
+	<a href="dest/honkong"> 홍콩 </a><br>
+	<a href="dest/macau"> 마카오 </a><br>
+	<a href="dest/singapore"> 싱가포르 </a><br>
+	<a href="dest/bangkok"> 방콕 </a><br>
+	<a href="dest/hongkong/nara"> 나</a>
+	
 </div>
 </body>
 </html>

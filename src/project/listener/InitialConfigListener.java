@@ -12,10 +12,13 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 @WebListener()
-public class HandlerMappingListener implements ServletContextListener {
+public class InitialConfigListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent sce) {
-        // 서버가 스타트될 때 사용할 객체를 생성해서 Map 에 저장
+        /**
+         * ActionMapping.properties에 저장된 Action 클래스들을 
+         * 서버가 스타트될 때 사용할 객체를 생성해서 Map 에 저장
+         */
         ServletContext application = sce.getServletContext();
         Map<String, Controller> map = new HashMap<>();
 
@@ -25,18 +28,18 @@ public class HandlerMappingListener implements ServletContextListener {
             System.out.println(key + " = " + rb.getString(key));
 
             try {
-                // 문자열을 객체로 변환
                 Controller classObj = (Controller) Class.forName(rb.getString(key)).newInstance();
-
-                // map 에 저장
                 map.put(key, classObj);
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
-        application.setAttribute("map", map);
+        application.setAttribute("actionMap", map);
+        
+        /**
+         * 서버에 저장될 기본 정보 저장.
+         */
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
