@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>

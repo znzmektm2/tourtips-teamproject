@@ -45,8 +45,7 @@ public class ProjectDAO {
 			String bestSeoson = rs.getString("BEST_SEASON");
 			String voltage = rs.getString("VOLTAGE");
 			String visaStatus = rs.getString("VISA_STATUS");
-			String pictures = rs.getString("PICTURES");
-			result.put(id, new CityDTO(id, name, region, localTime, bestSeoson, voltage, visaStatus, pictures));
+			result.put(id, new CityDTO(id, name, region, localTime, bestSeoson, voltage, visaStatus, ""));
 		}
 		return result;
 	}
