@@ -4,7 +4,7 @@ import java.util.List;
 
 import project.model.dto.CommentDTO;
 
-public interface CommentDao {
+public interface CommentDAO {
 
 	/**
 	 * SELECT * FROM COMMENTLIST
