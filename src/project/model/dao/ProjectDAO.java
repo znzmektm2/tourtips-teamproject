@@ -34,7 +34,7 @@ public class ProjectDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Map<String, CityDTO> result = new HashMap<>();
-
+    
 		try {
 			conn = DbUtil.getConnection();
 			ps = conn.prepareStatement(sql);
