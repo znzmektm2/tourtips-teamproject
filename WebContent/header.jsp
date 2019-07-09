@@ -26,18 +26,22 @@
 				<a href="#">회원가입</a>
 			</div>
 		</div>
-		<nav>
-			<ul>
+		<nav class="on">
+			<ul class="gnbList">
+				<li>아시아</li>
+				<li>동남아</li>
+				<li>유럽</li>
+				<li>미주</li>
+			</ul>
+			<ul class="lnbList">
 				<li>
-					<span>아시아</span>
 					<ul>
-						<li><a href="dest/hongkong">홍콩</a></li>
+						<li><a href="dest/hongkong"><img src="${pageContext.request.contextPath}/img/menu_icon/HONGKONG.gif" alt="투어팁스">홍콩</a></li>
 						<li><a href="dest/hongkong">홍콩</a></li>
 						<li><a href="dest/hongkong">홍콩</a></li>
 					</ul>
 				</li>
 				<li>
-					<span>동남아</span>
 					<ul>
 						<li><a href="dest/macau">마카오</a></li>
 						<li><a href="dest/macau">마카오</a></li>
@@ -45,13 +49,11 @@
 					</ul>
 				</li>
 				<li>
-					<span>유럽</span>
 					<ul>
 						<li><a href="dest/singapore">싱가포르</a></li>
 					</ul>
 				</li>
 				<li>
-					<span>미주</span>
 					<ul>
 						<li><a href="dest/newyork">뉴욕</a></li>
 					</ul>
@@ -62,7 +64,7 @@
 </body>
 <script>
 $(function() {
-	//메뉴 활성화
+	//상단메뉴 활성화
 	$('nav').mouseenter(function() {
 		$(this).addClass('on');
 	});
