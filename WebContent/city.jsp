@@ -5,33 +5,37 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
 	<div class="visualWrap">
-		<div class="wrapper">
+		<div class="video">
+			<video class="view player" autoplay loop muted="false">
+				<source src="../img/video/hongkong.mp4" type="video/mp4">
+			</video>
+		</div>
+		<div class="textWrap">
 			<h2>${location.name}</h2>
-			<p>15:15:32 시차 <span>-1</span>시간</p>
+			<p><span class="time">15:15:32</span> 시차 <span>${location.localTime}</span>시간</p>
 			<ul>
 				<li>
 					<dl>
 						<dt>여행 최적기</dt>
-						<dd>9-1월</dd>
-						<dd>덥지않은</dd>
+						<dd>${location.bestSeason}</dd>
 					</dl>
 				</li>
 				<li>
 					<dl>
 						<dt>전압</dt>
-						<dd>220V</dd>
+						<dd>${location.voltage}</dd>
 					</dl>
 				</li>
 				<li>
 					<dl>
 						<dt>비자</dt>
-						<dd>무비자</dd>
-						<dd>90일 무비자</dd>
+						<dd>${location.visaStatus}</dd>
 					</dl>
 				</li>
 			</ul>
@@ -45,7 +49,8 @@
 					<li>
 						<a href="#">
 							<div class="thumb">
-							
+								<img src="../img/IFC 55층 전망대_1.jpg" alt="">
+								<span class="cover"></span>
 							</div>
 							<div class="info">
 								<span class="category">전망대</span>
@@ -58,7 +63,8 @@
 					<li>
 						<a href="#">
 							<div class="thumb">
-							
+								<img src="../img/IFC 55층 전망대_1.jpg" alt="">
+								<span class="cover"></span>
 							</div>
 							<div class="info">
 								<span class="category">전망대</span>
@@ -71,7 +77,8 @@
 					<li>
 						<a href="#">
 							<div class="thumb">
-							
+								<img src="../img/IFC 55층 전망대_1.jpg" alt="">
+								<span class="cover"></span>
 							</div>
 							<div class="info">
 								<span class="category">전망대</span>
@@ -84,7 +91,8 @@
 					<li>
 						<a href="#">
 							<div class="thumb">
-							
+								<img src="../img/IFC 55층 전망대_1.jpg" alt="">
+								<span class="cover"></span>
 							</div>
 							<div class="info">
 								<span class="category">전망대</span>
@@ -98,7 +106,26 @@
 			</section>
 		</div>
 	</div>
-
 	<%@ include file="footer.jsp" %>
 </body>
+<script>
+$(function() {
+	//타이머
+	function startTime() {
+	    var today = new Date();
+	    var h = today.getHours();
+	    var m = today.getMinutes();
+	    var s = today.getSeconds();
+	    m = checkTime(m);
+	    s = checkTime(s);
+		$('.time').text(h + ":" + m + ":" + s);
+	    var t = setTimeout(startTime, 500);
+	}
+	function checkTime(i) {
+	    if (i < 10) {i = "0" + i}; // 숫자가 10보다 작을 경우 앞에 0을 붙여줌
+	    return i;
+	}
+	startTime();
+});
+</script>
 </html>

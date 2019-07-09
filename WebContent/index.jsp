@@ -8,7 +8,9 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<%@ include file="container.jsp" %>
+	<div class="innerWrap mainWrap">
+	
+	</div>
 	<%@ include file="footer.jsp" %>
 </body>
 </html>

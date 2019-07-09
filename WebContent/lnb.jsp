@@ -7,9 +7,9 @@
 </head>
 <body>
 	<div class="lnb">
-		<h3>홍콩</h3>
+		<h3>${location.name}</h3>
 		<ul>
-			<li><a href="#">전체</a></li>
+			<li class="active"><a href="#">전체</a></li>
 			<li><a href="#">명소</a></li>
 			<li><a href="#">맛집</a></li>
 			<li><a href="#">쇼핑</a></li>
