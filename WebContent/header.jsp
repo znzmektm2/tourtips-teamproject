@@ -25,11 +25,11 @@
 			</div>
 		</div>
 		<div>
-			<a href="dest/hongkong"> 홍콩 </a><br>
-			<a href="dest/macau"> 마카오 </a><br>
-			<a href="dest/singapore"> 싱가포르 </a><br>
-			<a href="dest/bangkok"> 방콕 </a><br>
-			<a href="dest/hongkong/nara"> 나</a>
+			<a href="${pageContext.request.contextPath}/dest/hongkong"> 홍콩 </a><br>
+			<a href="${pageContext.request.contextPath}/dest/macau"> 마카오 </a><br>
+			<a href="${pageContext.request.contextPath}/dest/singapore"> 싱가포르 </a><br>
+			<a href="${pageContext.request.contextPath}/dest/bangkok"> 방콕 </a><br>
+			<a href="${pageContext.request.contextPath}/dest/hongkong/nara"> 나</a>
 		</div>
 	</header>
 </body>
