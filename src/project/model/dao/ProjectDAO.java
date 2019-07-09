@@ -11,6 +11,7 @@ import java.util.Map;
 
 import project.model.dto.CityDTO;
 import project.model.dto.PlaceDTO;
+import project.model.dto.PopularLocationDTO;
 import project.util.DbUtil;
 
 public class ProjectDAO {
@@ -81,4 +82,27 @@ public class ProjectDAO {
 		}
 		return result;
 	}
+
+	/////////////////////////////////////////////////
+	// PopularLocation 관련
+	
+	public Map<String, PopularLocationDTO> selectAllPopular() throws SQLException {
+		String sql = "SELECT * FROM  POPULAR_LOACTION";
+
+		Connection conn = DbUtil.getConnection();
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		Map<String, PopularLocationDTO> result = new HashMap<>();
+
+		while (rs.next()) {
+			String nemu = rs.getString("MENU");
+			String category = rs.getString("CATEGORY");
+			String cityname = rs.getString("NAME");
+			String text = rs.getString("TEXT");
+			String id = rs.getString("PLACE_ID");
+			result.put(id, new PopularLocationDTO(nemu, category, cityname, text, id));
+		}
+		return result;
+	}
+	
 }

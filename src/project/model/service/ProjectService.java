@@ -6,6 +6,7 @@ import java.util.Map;
 import project.model.dao.ProjectDAO;
 import project.model.dto.CityDTO;
 import project.model.dto.PlaceDTO;
+import project.model.dto.PopularLocationDTO;
 
 public class ProjectService {
 	
@@ -31,6 +32,18 @@ public class ProjectService {
 		
 		try {
 			return dao.selectAllPlace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/////////////////////////////////////////////////
+	// PopularLocation 관련
+	
+	public Map<String, PopularLocationDTO> selectAllPopular() {
+		try {
+			return dao.selectAllPopular();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

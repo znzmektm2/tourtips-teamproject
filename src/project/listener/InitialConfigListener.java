@@ -44,6 +44,7 @@ public class InitialConfigListener implements ServletContextListener {
         ProjectService service = new ProjectService();
         application.setAttribute("CityAll", service.selectAllCity());
         application.setAttribute("PlaceAll", service.selectAllPlace()); 
+        application.setAttribute("PopularAll", service.selectAllPopular()); 
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
