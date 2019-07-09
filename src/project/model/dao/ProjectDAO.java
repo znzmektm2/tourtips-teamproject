@@ -86,21 +86,22 @@ public class ProjectDAO {
 	/////////////////////////////////////////////////
 	// PopularLocation 관련
 	
-	public Map<String, PopularLocationDTO> selectAllPopular() throws SQLException {
-		String sql = "SELECT * FROM  POPULAR_LOACTION";
+	public List<PopularLocationDTO> selectAllPopular() throws SQLException {
+		String sql = "SELECT * FROM POPULAR_LOCATION";
 
 		Connection conn = DbUtil.getConnection();
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
-		Map<String, PopularLocationDTO> result = new HashMap<>();
+		List<PopularLocationDTO> result = new ArrayList<>();
 
 		while (rs.next()) {
 			String nemu = rs.getString("MENU");
 			String category = rs.getString("CATEGORY");
 			String cityname = rs.getString("NAME");
 			String text = rs.getString("TEXT");
-			String id = rs.getString("PLACE_ID");
-			result.put(id, new PopularLocationDTO(nemu, category, cityname, text, id));
+			String placeId = rs.getString("PLACE_ID");
+			String cityId = rs.getString("CITY_ID");
+			result.add(new PopularLocationDTO(nemu, category, cityname, text, placeId, cityId));
 		}
 		return result;
 	}

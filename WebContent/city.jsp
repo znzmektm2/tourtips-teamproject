@@ -44,69 +44,33 @@
 		<%@ include file="lnb.jsp" %>
 		<div class="content">
 			<section class="spotList">
-				<ul>
-					<li>
-						<a href="#">
-							<div class="thumb">
-								<img src="../img/IFC 55층 전망대_1.jpg" alt="">
-								<span class="cover"></span>
-							</div>
-							<div class="info">
-								<span class="category">전망대</span>
-								<strong class="title">IFC몰 55층 전망대</strong>
-								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
-								<span class="star">4.2</span>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="thumb">
-								<img src="../img/IFC 55층 전망대_1.jpg" alt="">
-								<span class="cover"></span>
-							</div>
-							<div class="info">
-								<span class="category">전망대</span>
-								<strong class="title">IFC몰 55층 전망대</strong>
-								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
-								<span class="star">4.2</span>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="thumb">
-								<img src="../img/IFC 55층 전망대_1.jpg" alt="">
-								<span class="cover"></span>
-							</div>
-							<div class="info">
-								<span class="category">전망대</span>
-								<strong class="title">IFC몰 55층 전망대</strong>
-								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
-								<span class="star">4.2</span>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="thumb">
-								<img src="../img/IFC 55층 전망대_1.jpg" alt="">
-								<span class="cover"></span>
-							</div>
-							<div class="info">
-								<span class="category">전망대</span>
-								<strong class="title">IFC몰 55층 전망대</strong>
-								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
-								<span class="star">4.2</span>
-							</div>
-						</a>
-					</li>
-				</ul>
+				<c:forEach items="${popular}" var="popularMenus" varStatus="state">
+				<div>
+					<h3>${popularMenus.menu}</h3>
+					<ul>
+						<c:forEach items="${popularMenus.popularLocations}" var="popularLocation">
+						<li>
+							<a href="./${location.id}/${popularLocation.placeId}">
+								<div class="thumb">
+									<img src="../img/IFC 55층 전망대_1.jpg" alt="">
+									<span class="cover"></span>
+								</div>
+								<div class="info">
+									<span class="category">${popularLocation.category}</span>
+									<strong class="title">${popularLocation.name}</strong>
+									<p class="txt">${popularLocation.text}</p>
+									<span class="star">4.2</span>
+								</div>
+							</a>
+						</li> 
+						</c:forEach>
+					</ul>
+				</div>
+				</c:forEach>
 			</section>
 		</div>
 	</div>
 	<%@ include file="footer.jsp" %>
-
   </body>
 <script>
 $(function() {
@@ -116,6 +80,7 @@ $(function() {
 	    var h = today.getHours();
 	    var m = today.getMinutes();
 	    var s = today.getSeconds();
+	    h = checkTime(h);
 	    m = checkTime(m);
 	    s = checkTime(s);
 		$('.time').text(h + ":" + m + ":" + s);

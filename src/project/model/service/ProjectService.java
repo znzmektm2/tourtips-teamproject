@@ -1,6 +1,9 @@
 package project.model.service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import project.model.dao.ProjectDAO;
@@ -41,9 +44,19 @@ public class ProjectService {
 	/////////////////////////////////////////////////
 	// PopularLocation 관련
 	
-	public Map<String, PopularLocationDTO> selectAllPopular() {
+	public Map<String, List<PopularLocationDTO>> selectAllPopular() {
 		try {
-			return dao.selectAllPopular();
+			List<PopularLocationDTO> popularList = dao.selectAllPopular();
+			Map<String, List<PopularLocationDTO>> result = new HashMap<>();
+			
+			for(PopularLocationDTO dto : popularList) {
+				if(!result.containsKey(dto.getCityId())) {
+					result.put(dto.getCityId(), new ArrayList<>());
+				}
+				List<PopularLocationDTO> locations = result.get(dto.getCityId());
+				locations.add(dto);
+			}
+			return result;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

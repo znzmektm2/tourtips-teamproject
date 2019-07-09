@@ -5,17 +5,19 @@ public class PopularLocationDTO {
 	private String category;
 	private String name;
 	private String text;
-	private String id;
+	private String placeId;
+	private String cityId;
 	
 	public PopularLocationDTO() {};
-	
-	public PopularLocationDTO(String menu, String category, String name, String text, String id) {
+
+	public PopularLocationDTO(String menu, String category, String name, String text, String placeId, String cityId) {
 		super();
 		this.menu = menu;
 		this.category = category;
 		this.name = name;
 		this.text = text;
-		this.id = id;
+		this.placeId = placeId;
+		this.cityId = cityId;
 	}
 
 	public String getMenu() {
@@ -49,12 +51,25 @@ public class PopularLocationDTO {
 	public void setText(String text) {
 		this.text = text;
 	}
-	
-	public String getId() {
-		return id;
+
+	public String getPlaceId() {
+		return placeId;
+	}
+
+	public void setPlaceId(String placeId) {
+		this.placeId = placeId;
+	}
+
+	public String getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(String cityId) {
+		this.cityId = cityId;
 	}
 	
-	public void setId(String id) {
-		this.id = id;
+	@Override
+	public String toString() {
+		return "cityId: " + this.cityId + " placeId: " + this.placeId + " menu: " + this.menu;
 	}
 }

@@ -6,6 +6,7 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import project.controller.Controller;
+import project.model.dto.CityDTO;
 import project.model.service.ProjectService;
 
 import java.util.HashMap;
@@ -42,7 +43,9 @@ public class InitialConfigListener implements ServletContextListener {
          * 서버에 저장될 기본 정보 저장.
          */
         ProjectService service = new ProjectService();
-        application.setAttribute("CityAll", service.selectAllCity());
+        Map<String, CityDTO> cityMap = service.selectAllCity();
+        application.setAttribute("CityAll", cityMap);
+        application.setAttribute("Cities", cityMap.values());
         application.setAttribute("PlaceAll", service.selectAllPlace()); 
         application.setAttribute("PopularAll", service.selectAllPopular()); 
     }
