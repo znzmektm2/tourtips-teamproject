@@ -80,4 +80,9 @@ public class ProjectDAO {
 		}
 		return result;
 	}
+	
+	/////////////////////////////////////////////////
+	// PopularLocation 관련
+	
+	
 }

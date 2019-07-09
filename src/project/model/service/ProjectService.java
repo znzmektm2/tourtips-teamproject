@@ -36,4 +36,7 @@ public class ProjectService {
 			return null;
 		}
 	}
+	
+	/////////////////////////////////////////////////
+	// PopularLocation 관련
 }

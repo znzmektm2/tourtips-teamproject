@@ -3,7 +3,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style.css" />
 <title>여행관광지 사이트</title>
 </head>
 <body>

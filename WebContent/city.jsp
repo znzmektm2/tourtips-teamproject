@@ -4,8 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -13,7 +11,7 @@
 	<div class="visualWrap">
 		<div class="video">
 			<video class="view player" autoplay loop muted="false">
-				<source src="../img/video/hongkong.mp4" type="video/mp4">
+				<source src="../img/video/${location.id}.mp4" type="video/mp4">
 			</video>
 		</div>
 		<div class="textWrap">
@@ -55,7 +53,7 @@
 							<div class="info">
 								<span class="category">전망대</span>
 								<strong class="title">IFC몰 55층 전망대</strong>
-								<p>통유리로 바라본 전망대와 화폐박물관</p>
+								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
 								<span class="star">4.2</span>
 							</div>
 						</a>
@@ -69,7 +67,7 @@
 							<div class="info">
 								<span class="category">전망대</span>
 								<strong class="title">IFC몰 55층 전망대</strong>
-								<p>통유리로 바라본 전망대와 화폐박물관</p>
+								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
 								<span class="star">4.2</span>
 							</div>
 						</a>
@@ -83,7 +81,7 @@
 							<div class="info">
 								<span class="category">전망대</span>
 								<strong class="title">IFC몰 55층 전망대</strong>
-								<p>통유리로 바라본 전망대와 화폐박물관</p>
+								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
 								<span class="star">4.2</span>
 							</div>
 						</a>
@@ -97,7 +95,7 @@
 							<div class="info">
 								<span class="category">전망대</span>
 								<strong class="title">IFC몰 55층 전망대</strong>
-								<p>통유리로 바라본 전망대와 화폐박물관</p>
+								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
 								<span class="star">4.2</span>
 							</div>
 						</a>
