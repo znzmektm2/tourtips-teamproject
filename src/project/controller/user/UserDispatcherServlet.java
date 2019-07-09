@@ -27,16 +27,14 @@ public class UserDispatcherServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		ServletContext application = super.getServletContext();
-		map = (Map<String, Controller>) application.getAttribute("actionMap");
+		map = (Map<String, Controller>) application.getAttribute("userActionMap");
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String key = request.getParameter("command");
-		System.out.println(key);
 		if(key == null) {
 			key = "list";
 		}
-		System.out.println(key);
 		Controller controller = map.get(key);
 		ModelAndView mv = controller.handleRequest(request, response);
 		

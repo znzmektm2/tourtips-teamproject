@@ -36,14 +36,16 @@ public class InitialConfigListener implements ServletContextListener {
                 e.printStackTrace();
             }
         }
-        application.setAttribute("actionMap", map);
+        application.setAttribute("userActionMap", map);
         
         /**
          * 서버에 저장될 기본 정보 저장.
          */
+        application.setAttribute("rootPath", application.getContextPath());
         ProjectService service = new ProjectService();
         application.setAttribute("CityAll", service.selectAllCity());
-        application.setAttribute("PlaceAll", service.selectAllPlace()); 
+        application.setAttribute("PlaceAll", service.selectAllPlace());
+        
     }
 
     public void contextDestroyed(ServletContextEvent sce) {

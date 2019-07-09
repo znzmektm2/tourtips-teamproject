@@ -1,8 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="${rootPath}/css/style.css" />
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -16,20 +21,30 @@
 				<div id="suggest" style="display: none"></div>
 			</div>
 			<h1>
-				<a href="#"><img src="${pageContext.request.contextPath}/img/origin.gif" alt="투어팁스"></a>
+				<a href="#"><img src="${rootPath}/img/origin.gif" alt="투어팁스"></a>
 			</h1>
 			<div class="login">
-				<a href="#">로그인</a>
-				<span>|</span>
-				<a href="#">회원가입</a>
+				<c:choose>
+					<c:when test="${sessionUser == null}">
+						<a href="${rootPath}/login/loginForm.jsp">로그인</a>
+						<span>|</span>
+						<a href="${rootPath}/login/signInForm.jsp">회원가입</a>
+					</c:when>
+					<c:otherwise>
+						<p>${sessionUser.name}씨방갑.</p>
+						<a href="${rootPath}/join?command=logout">로그아웃</a>
+						<span>|</span>
+						<a href="#">회원정보</a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<div>
-			<a href="${pageContext.request.contextPath}/dest/hongkong"> 홍콩 </a><br>
-			<a href="${pageContext.request.contextPath}/dest/macau"> 마카오 </a><br>
-			<a href="${pageContext.request.contextPath}/dest/singapore"> 싱가포르 </a><br>
-			<a href="${pageContext.request.contextPath}/dest/bangkok"> 방콕 </a><br>
-			<a href="${pageContext.request.contextPath}/dest/hongkong/nara"> 나</a>
+			<a href="${rootPath}/dest/hongkong"> 홍콩 </a><br> <a
+				href="${rootPath}/dest/macau"> 마카오 </a><br> <a
+				href="${rootPath}/dest/singapore"> 싱가포르 </a><br> <a
+				href="${rootPath}/dest/bangkok"> 방콕 </a><br> <a
+				href="${rootPath}/dest/hongkong/nara"> 나</a>
 		</div>
 	</header>
 </body>

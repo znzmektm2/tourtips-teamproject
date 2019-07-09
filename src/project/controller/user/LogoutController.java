@@ -17,14 +17,15 @@ public class LogoutController implements Controller {
 			throws ServletException, IOException {
 		String url = "errorView/error.jsp";
 		ModelAndView mv = new ModelAndView();
-			
+
 		HttpSession session = request.getSession();
 		try {
-		session.invalidate();
-		url="../index.jsp";
+			session.invalidate();
+			url = request.getContextPath() + "/index.jsp";
 		}catch(Exception e) {
 			request.setAttribute("erroMsg", e.getMessage());
 		}
+		
 		mv.setPath(url);
 		mv.setRedirect(true);
 		return mv;

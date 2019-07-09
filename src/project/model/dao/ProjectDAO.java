@@ -52,7 +52,6 @@ public class ProjectDAO {
 		} finally {
 			DbUtil.dbClose(rs, ps, conn);
 		}
-		
 		return result;
 	}
 
