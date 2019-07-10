@@ -44,8 +44,9 @@
 					console.log(err)
 				}
 			})			
-		}
-		// 보드 리스트 가져오는 ajax 종료.
+		}		// 보드 리스트 가져오는 ajax 종료.
+
+		loadBoard();
 	});
 </script>
 </head>

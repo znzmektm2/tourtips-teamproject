@@ -1,6 +1,7 @@
 package project.controller.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -34,6 +35,12 @@ public class LoginController implements Controller {
 				HttpSession session = request.getSession();
 				session.setAttribute("sessionUser", user);
 				url = returnURL;
+			} else {
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('회원정보가 맞지않습니다.')");
+				out.println("</script>");
+				out.println("history.back()");
 			}
 		} catch (SQLException e) {
 			request.setAttribute("errorMsg", e.getMessage());
