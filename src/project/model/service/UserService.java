@@ -47,7 +47,7 @@ public class UserService {
 		
 		if(result == 0)
 			throw new SQLException("저장에 실패하였습니다.");
-		return dao.insert(user);
+		return result;
 	}
 	
 	/**
@@ -65,6 +65,12 @@ public class UserService {
 		return result;
 	}
 	
+	/**
+	 * 유저정보 수정
+	 * @param user
+	 * @return
+	 * @throws SQLException
+	 */
 	public static int update(UserDTO user) throws SQLException {
 
 		UserDTO dbjoin = dao.selectById(user.getUserId());

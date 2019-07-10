@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import project.model.dto.UserDTO;
-import project.model.dao.DbUtil;
+import project.util.DbUtil;
 
 public class UserDAO {
 

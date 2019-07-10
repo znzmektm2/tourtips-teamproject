@@ -7,10 +7,10 @@
 
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="/header.jsp" %>
 	<div class="innerWrap mainWrap">
 	
 	</div>
-	<%@ include file="footer.jsp" %>
+	<%@ include file="/footer.jsp" %>
 </body>
 </html>

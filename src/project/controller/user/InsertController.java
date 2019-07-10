@@ -33,6 +33,7 @@ public class InsertController implements Controller {
 			mv.setPath(returnURL);
 			mv.setRedirect(true);
 		} catch (SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errorMsg", e.getMessage());
 			mv.setPath(url);
 		}

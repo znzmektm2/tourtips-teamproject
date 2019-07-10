@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import project.controller.Controller;
 import project.controller.ModelAndView;
 import project.model.dto.UserDTO;
-import project.model.service.JoinService;
+import project.model.service.UserService;
 
 public class UpdateController implements Controller {
 
@@ -24,9 +24,9 @@ public class UpdateController implements Controller {
 		String userName = request.getParameter("name");
 		String userEmail = request.getParameter("email");
 		
-		UserDTO joinDTO = new UserDTO(userId,userPwd,userName,userEmail);
+		UserDTO user = new UserDTO(userId,userPwd,userName,userEmail);
 		try {
-			JoinService.update(joinDTO);
+			UserService.update(user);
 			url ="join";
 			 mv.setRedirect(true);
 		} catch (SQLException e) {

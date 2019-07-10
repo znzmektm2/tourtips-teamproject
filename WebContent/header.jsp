@@ -21,7 +21,7 @@
 				<div id="suggest" style="display: none"></div>
 			</div>
 			<h1>
-				<a href="#"><img src="${rootPath}/img/origin.gif" alt="투어팁스"></a>
+				<a href="${rootPath}/"><img src="${rootPath}/img/origin.gif" alt="투어팁스"></a>
 			</h1>
 			<div class="login">
 				<c:choose>
@@ -31,10 +31,10 @@
 						<a href="${rootPath}/login/signInForm.jsp">회원가입</a>
 					</c:when>
 					<c:otherwise>
-						<p>${sessionUser.name}씨방갑.</p>
+						<p>${sessionUser.name}씨 할로~</p>
 						<a href="${rootPath}/join?command=logout">로그아웃</a>
 						<span>|</span>
-						<a href="#">회원정보</a>
+						<a href="${rootPath}/login/updateUser.jsp">회원정보</a>
 					</c:otherwise>
 				</c:choose>
 			</div>
