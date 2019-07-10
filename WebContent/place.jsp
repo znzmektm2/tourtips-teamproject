@@ -26,16 +26,30 @@
 					placeId : "${location.id}"
 				},
 				success : function(result) {
-					var table = '';
-					$(result).each(
+					var table = ''
+					var count = 0
+					$(result.list).each(
 							function(index, item) {
 								table += '<tr><td>' + item.userId + '</td><td>'
 										+ item.context + '</td><td>'
 										+ printStar(item.rating) + '</td><td>'
-										+ item.dateCreated + '</td></tr>'
+										+ item.dateCreated + '</td></tr>';
+								count++;
 							})
 					$('tbody tr').remove();
 					$('tbody').append(table)
+					
+					/////// 이거 레이팅 및 숫자 변동
+					$('#reviewCount').text(count);
+					
+					var total = (result.ratings[0] + result.ratings[1] + result.ratings[2] + result.ratings[3] + result.ratings[4])/5
+					$('#totalRating').text(total.toFixed(1));					
+
+					$('#rating1').text(result.ratings[0]);
+					$('#rating2').text(result.ratings[1]);
+					$('#rating3').text(result.ratings[2]);
+					$('#rating4').text(result.ratings[3]);
+					$('#rating5').text(result.ratings[4]);
 				},
 				error : function(err) {
 					console.log(err)
@@ -43,14 +57,21 @@
 			})
 		} // 보드 리스트 가져오는 ajax 종료.
 		
+		/** 별찍기 함수 */
 		function printStar(rating) {
 			var str = ''
 			for(i=0 ; i < rating ; i++){
 				str += '<img src="${rootPath}/img/ico_star_big.png" style="width:10px; height:10px">'
 			}
-			console.log(str)
 			return str
-		}
+		} // 별찍기 함수
+		
+		////////////////////////////////////////////////
+		// 레이팅 불러오기
+		function loadRating() {
+			
+		} // 레이팅 불러오기 ajax 종료
+		
 		////////////////////////////////////////////////
 		// 코멘트 등록하기
 		$(document).on('click','#btnSubmit', function() {
@@ -173,6 +194,16 @@
 					</ul>
 				</div>
 				<div id="cnt-cont">${location.content}</div>
+				
+				<div>
+					<div>리뷰 : <span id="reviewCount"></span></div>
+					<div>평점 : <span id="totalRating"></span></div>
+					<div>일점 : <span id="rating1"></span></div>
+					<div>이점 : <span id="rating2"></span></div>
+					<div>삼점 : <span id="rating3"></span></div>
+					<div>사점 : <span id="rating4"></span></div>
+					<div>오점 : <span id="rating5"></span></div>					
+				</div>
 				
 				<div class="review">
 					<c:choose>
