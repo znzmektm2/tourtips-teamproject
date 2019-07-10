@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +35,12 @@
 </head>
 <body>
 	<%@ include file="/header.jsp"%>
-	<form name="writeForm" method="post"
-		action="${rootPath}/join?command=insert"
-		onSubmit='return checkValid()'>
+	<form name="writeForm" method="post" action="${rootPath}/join?command=insert" onSubmit='return checkValid()'>
+		<c:if test="${sessionUser != null}">
+			<%
+				response.sendRedirect(application.getContextPath());
+			%>
+		</c:if>
 		<div>
 			<b> 회원 가입 </b>
 		</div>

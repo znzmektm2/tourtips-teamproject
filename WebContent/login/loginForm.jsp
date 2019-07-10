@@ -12,7 +12,9 @@
 <body>
 	<%@ include file="/header.jsp"%>
 	<div class="innerWrap mainWrap">
-		<%-- <c:if test="${sessionScope }"> --%>
+		<c:if test="${sessionUser != null}">
+			<% response.sendRedirect(application.getContextPath()); %>
+		</c:if>
 		<form method="post" action="${rootPath}/join">
 			<input type="hidden" name="command" value="login">
 			<input type="hidden" name="returnURL" value="<%=request.getHeader("referer")%>">
@@ -20,10 +22,6 @@
 			PWD : <input type="password" name="userPwd"><br>
 			<input type="submit" value="로그인">
 		</form>
-		<%-- </c:if> --%>
-		<%-- <c:otherwise>
-			<jsp:forward page="${pageContext.request.contextPath}" />
-		 </c:otherwise> --%>
 	</div>
 	<%@ include file="/footer.jsp"%>
 </body>
