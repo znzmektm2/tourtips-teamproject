@@ -5,15 +5,77 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+	rel="stylesheet" />
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script>
+	$(function() {
 
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		////////////////////////////////////////////////
+		// 코멘트 보드 리스트 가져오기
+		function loadBoard() {
+			$.ajax({
+				type : "post",
+				url : "${rootPath}/CommentSelectByPlace",
+				dataType : "json",
+				data : {
+					placeId : "${location.id}"
+				},
+				success : function(result) {
+					var table = '';
+					$(result).each(
+							function(index, item) {
+								table += '<tr><td>' + item.userId + '</td><td>'
+										+ item.context + '</td><td>'
+										+ printStar(item.rating) + '</td><td>'
+										+ item.dateCreated + '</td></tr>'
+							})
+					$('tbody tr').remove();
+					$('tbody').append(table)
+				},
+				error : function(err) {
+					console.log(err)
+				}
+			})
+		} // 보드 리스트 가져오는 ajax 종료.
+		
+		function printStar(rating) {
+			var str = ''
+			for(i=0 ; i < rating ; i++){
+				str += '<img src="${rootPath}/img/ico_star_big.png" style="width:10px; height:10px">'
+			}
+			console.log(str)
+			return str
+		}
+		////////////////////////////////////////////////
+		// 코멘트 등록하기
+		$(document).on('click','#btnSubmit', function() {
+			$.ajax({
+				type : "post",
+				url : "${rootPath}/CommentInsert",
+				dataType : "json",
+				data : $('#commentForm').serialize(),
+				success : function(result) {
+					loadBoard();		
+				},
+				error : function(err) {
+					console.log(err)
+				}
+			})
+		}) // 등록하기 ajax 종료
+		
+		loadBoard();
+	});
+</script>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp"%>
 	<div class="innerWrap placeWrap">
-		<%@ include file="lnb.jsp" %>
+		<%@ include file="lnb.jsp"%>
 		<div class="content">
 			<div class="article-title">
 				<div class="title_area">
@@ -80,11 +142,12 @@
 					</div>
 
 					<!--이전, 다음 버튼-->
-					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left"></span>
-					</a>
-					<a class="right carousel-control" href="#myCarousel" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right"></span>
+					<a class="left carousel-control" href="#myCarousel"
+						data-slide="prev"> <span
+						class="glyphicon glyphicon-chevron-left"></span>
+					</a> <a class="right carousel-control" href="#myCarousel"
+						data-slide="next"> <span
+						class="glyphicon glyphicon-chevron-right"></span>
 					</a>
 				</div>
 				<%-- <jsp:useBean id="pdto" class="project.model.dto.PlaceDTO"></jsp:useBean> --%>
@@ -110,8 +173,51 @@
 					</ul>
 				</div>
 				<div id="cnt-cont">${location.content}</div>
+				
 				<div class="review">
-					
+					<c:choose>
+						<c:when test="${sessionUser!= null}">
+							<form id=commentForm method="post">
+								<div>
+									<label> ${sessionUser.userId }</label>
+									<input type="text" name="txtComment">
+									<span>
+										<input type="radio" name="rating" value="1">
+										<input type="radio" name="rating" value="2">
+										<input type="radio" name="rating" value="3">
+										<input type="radio" name="rating" value="4">
+										<input type="radio" name="rating" value="5">
+									</span>
+									<input id="btnSubmit" type="button" value="등록하기">
+									<input type="hidden" name="userId" value="${sessionUser.userId}">
+									<input type="hidden" name="placeId" value="${location.id}">
+								</div>
+							</form>
+						</c:when>
+						<c:otherwise>
+							<!--  여기 위에 텍스트 공간만큼 좀 남게 ㅇ_-->
+						</c:otherwise>
+					</c:choose>
+					<div class="overflow-auto" style="height: 520px">
+						<table class="table table-striped table-hover">
+							<thead class="thead">
+								<tr class="table-success">
+									<th>닉네임</th>
+									<th>내용</th>
+									<th>평점</th>
+									<th>작성시간</th>
+								</tr>
+							</thead>
+							<tbody>
+							<colgroup>
+								<col width="10%">
+								<col width="70%">
+								<col width="10%">
+								<col width="10%">
+							</colgroup>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -23,7 +23,7 @@ public class CommentDAOImpl implements CommentDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<CommentDTO> list = new ArrayList<>();
-		String sql = "SELECT * FROM COMMENTLIST WHERE PLACE_ID=?";
+		String sql = "SELECT * FROM COMMENTLIST WHERE PLACE_ID=? ORDER BY COMMENT_ID DESC";
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
@@ -48,7 +48,7 @@ public class CommentDAOImpl implements CommentDAO {
 		PreparedStatement ps =null;
 		int result=0;
 		
-		String sql ="INSERT INTO COMMENTLIST VALUES(SEQ_COMMENT_ID.NEXTVAL,?,?,?,?,SYSDATE);";
+		String sql ="INSERT INTO COMMENTLIST VALUES(SEQ_COMMENT_ID.NEXTVAL,?,?,?,?,SYSDATE)";
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);	

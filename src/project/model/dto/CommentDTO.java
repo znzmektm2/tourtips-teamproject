@@ -67,4 +67,10 @@ public class CommentDTO {
 	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
+
+	@Override
+	public String toString() {
+		return "CommentDTO [commentId=" + commentId + ", placeId=" + placeId + ", userId=" + userId + ", context="
+				+ context + ", rating=" + rating + ", dateCreated=" + dateCreated + "]";
+	}
 }

@@ -17,25 +17,30 @@ public class UpdateController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url="errorView/error.jsp";
+		String url = "errorView/error.jsp";
+		
 		ModelAndView mv = new ModelAndView();
+		
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("password");
 		String userName = request.getParameter("name");
 		String userEmail = request.getParameter("email");
+		String returnURL = request.getParameter("returnURL");
+
+		UserDTO user = new UserDTO(userId, userPwd, userName, userEmail);
 		
-		UserDTO user = new UserDTO(userId,userPwd,userName,userEmail);
 		try {
 			UserService.update(user);
-			url ="join";
-			 mv.setRedirect(true);
+
+			url = returnURL;
+			mv.setRedirect(true);
 		} catch (SQLException e) {
 			request.setAttribute("erorMsg", e.getMessage());
 		}
-				
-		 mv.setPath(url); 
-	
-			return mv;
+
+		mv.setPath(url);
+
+		return mv;
 	}
 
 }

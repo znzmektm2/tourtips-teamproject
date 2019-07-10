@@ -56,7 +56,7 @@
 					<div><input type="email" name="email"></div>
 				</div>
 				<div class="btn">
-					<input class="gray" type=submit value=수정하기>
+					<input class="gray" type=submit value=가입하기>
 					<input class="red" type=reset value=다시쓰기>
 				</div>
 				<div>
