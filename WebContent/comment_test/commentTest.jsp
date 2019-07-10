@@ -20,29 +20,33 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 	$(function() {
-		$.ajax({
-			type : "post",
-			url : "../CommentSelectByPlace",
-			dataType : "json",
-			data : {
-				placeId : "${requestScope.location.id}"
-			},
-			success : function(result) {
-				var table = '';
-				$(result).each(
-						function(index, item) {
-							table += '<tr><td>' + item.userId + '</td><td>'
-									+ item.context + '</td><td>' + item.rating
-									+ '</td><td>' + item.dateCreated
-									+ '</td></tr>'
-						})
-				$('tbody tr:gt(0)').remove();
-				$('tbody').append(table)
-			},
-			error : function(err) {
-				console.log(err)
-			}
-		}) // 보드 리스트 가져오는 ajax 종료.
+		function loadBoard() {
+			$.ajax({
+				type : "post",
+				url : "../CommentSelectByPlace",
+				dataType : "json",
+				data : {
+					placeId : "${requestScope.location.id}"
+				},
+				success : function(result) {
+					var table = '';
+					$(result).each(
+							function(index, item) {
+								table += '<tr><td>' + item.userId + '</td><td>'
+										+ item.context + '</td><td>' + item.rating
+										+ '</td><td>' + item.dateCreated
+										+ '</td></tr>'
+							})
+					$('tbody tr:gt(0)').remove();
+					$('tbody').append(table)
+				},
+				error : function(err) {
+					console.log(err)
+				}
+			})			
+		}		// 보드 리스트 가져오는 ajax 종료.
+
+		loadBoard();
 	});
 </script>
 </head>
@@ -54,8 +58,8 @@
 				<c:when test="${sessionUser!= null}">
 					<form action="board" method="post" class="mt-2">
 						<div class="input-group mb-3">
-							<input type="text" class="form-control" name="txtComment"
-								placeholder="여기에 글쓰면 된다.">
+							<input type="text" class="form-control" name="txtComment">
+							
 							<div class="input-group-append">
 								<input type="submit" name="btnSubmit"
 									class="btn btn-outline-secondary">

@@ -49,24 +49,26 @@
 			<ul class="lnbList">
 				<li>
 					<ul>
-						<li><a href="${rootPath}/dest/hongkong"><img src="${pageContext.request.contextPath}/img/menu_icon/HONGKONG.gif" alt="">홍콩</a></li>
-						<li><a href="${rootPath}/dest/macau"><img src="${pageContext.request.contextPath}/img/menu_icon/MACAU.gif" alt="">마카오</a></li>
+						<li><a href="${rootPath}/dest/hongkong"><img src="${rootPath}/img/menu_icon/HONGKONG.gif" alt="">홍콩</a></li>
+						<li><a href="${rootPath}/dest/macau"><img src="${rootPath}/img/menu_icon/MACAU.gif" alt="">마카오</a></li>
+
 					</ul>
 				</li>
 				<li>
 					<ul>
-						<li><a href="${rootPath}/dest/singapore"><img src="${pageContext.request.contextPath}/img/menu_icon/SINGAPORE.gif" alt="">싱가포르</a></li>
-						<li><a href="${rootPath}/dest/bangkok"><img src="${pageContext.request.contextPath}/img/menu_icon/BANGKOK.gif" alt="">방콕</a></li>
+						<li><a href="${rootPath}/dest/singapore"><img src="${rootPath}/img/menu_icon/SINGAPORE.gif" alt="">싱가포르</a></li>
+						<li><a href="${rootPath}/dest/bangkok"><img src="${rootPath}/img/menu_icon/BANGKOK.gif" alt="">방콕</a></li>
 					</ul>
 				</li>
 				<li>
 					<ul>
-						<li><a href="${rootPath}/dest/paris"><img src="${pageContext.request.contextPath}/img/menu_icon/PARIS.gif" alt="">파리</a></li>
+						<li><a href="${rootPath}/dest/paris"><img src="${rootPath}/img/menu_icon/PARIS.gif" alt="">파리</a></li>
+
 					</ul>
 				</li>
 				<li>
 					<ul>
-						<li><a href="${rootPath}/dest/newyork"><img src="${pageContext.request.contextPath}/img/menu_icon/NEWYORK.gif" alt="">뉴욕</a></li>
+						<li><a href="${rootPath}/dest/newyork"><img src="${rootPath}/img/menu_icon/NEWYORK.gif" alt="">뉴욕</a></li>
 					</ul>
 				</li>
 			</ul>
