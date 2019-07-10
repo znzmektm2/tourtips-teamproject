@@ -9,13 +9,12 @@ public class CityDTO {
     private String bestSeason;
     private String voltage;
     private String visaStatus;
-    private String pictures;
 
     public CityDTO() {
 	}
 
 	public CityDTO(String id, String name, String region, int localTime, String bestSeason, String voltage,
-			String visaStatus, String pictures) {
+			String visaStatus) {
 		this.id = id;
 		this.name = name;
 		this.region = region;
@@ -23,7 +22,6 @@ public class CityDTO {
 		this.bestSeason = bestSeason;
 		this.voltage = voltage;
 		this.visaStatus = visaStatus;
-		this.pictures = pictures;
 	}
 
 	public String getId() {
@@ -80,13 +78,5 @@ public class CityDTO {
 
 	public void setVisaStatus(String visaStatus) {
 		this.visaStatus = visaStatus;
-	}
-
-	public String getPictures() {
-		return pictures;
-	}
-
-	public void setPictures(String pictures) {
-		this.pictures = pictures;
 	}
 }

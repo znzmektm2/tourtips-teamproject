@@ -1,10 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${rootPath}/css/style.css" />
+<script type="text/javascript" src="${rootPath}/js/jquery-3.4.1.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -18,12 +21,22 @@
 				<div id="suggest" style="display: none"></div>
 			</div>
 			<h1>
-				<a href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/img/origin.gif" alt="투어팁스"></a>
+				<a href="${rootPath}/"><img src="${rootPath}/img/origin.gif" alt="투어팁스"></a>
 			</h1>
 			<div class="login">
-				<a href="#">로그인</a>
-				<span>|</span>
-				<a href="#">회원가입</a>
+				<c:choose>
+					<c:when test="${sessionUser == null}">
+						<a href="${rootPath}/login/loginForm.jsp">로그인</a>
+						<span>|</span>
+						<a href="${rootPath}/login/signInForm.jsp">회원가입</a>
+					</c:when>
+					<c:otherwise>
+						<p>${sessionUser.name}씨 할로~</p>
+						<a href="${rootPath}/join?command=logout">로그아웃</a>
+						<span>|</span>
+						<a href="${rootPath}/login/updateUser.jsp">회원정보</a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<nav class="on">

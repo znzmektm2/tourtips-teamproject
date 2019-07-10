@@ -2,7 +2,7 @@ package project.model.dto;
 
 public class PlaceDTO {
 
-	private String id;
+	private int id;
 	private String name;
 	private String cityId;
 	private String type;
@@ -18,7 +18,7 @@ public class PlaceDTO {
 	public PlaceDTO() {
 	}
 
-	public PlaceDTO(String id, String name, String cityId, String type, String localName, String website, String area,
+	public PlaceDTO(int id, String name, String cityId, String type, String localName, String website, String area,
 			String enterance, String operating, String howto, String call, String content) {
 		this.id = id;
 		this.name = name;
@@ -34,11 +34,11 @@ public class PlaceDTO {
 		this.content = content;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -1,47 +1,35 @@
 package project.model.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import project.model.dto.CommentDTO;
 
-public interface CommentDao {
+public interface CommentDAO {
 
 	/**
-	 * SELECT * FROM COMMENTLIST
+	 * SELECT * FROM COMMENTLIST WHERE PLACE_ID=?
 	 * 
 	 * @return
+	 * @throws SQLException 
 	 */
-	List<CommentDTO> selectAll();
+	List<CommentDTO> selectByPlaceId(int placeId) throws SQLException;
 
 	/**
-	 * SELECT * FROM COMMENTLIST WHERE ID=?
-	 * 
-	 * @param commentId
-	 * @return
-	 */
-	CommentDTO selectByCommentId(String commentId);
-
-	/**
-	 * INSERT INTO COMMENTLIST(COMMENT_ID, CITY_ID, USER_ID, CONTEXT, RATING,
-	 * DATE_CREATED) VALUES(SEQ_COMMENT_ID.NEXTVAL(), ?,?,?,?,SYSDATE);
+	 * INSERT INTO COMMENTLIST VALUES(SEQ_COMMENT_ID.NEXTVAL(), ?,?,?,?,SYSDATE);
 	 * 
 	 * @param comment
 	 * @return
+	 * @throws SQLException 
 	 */
-	int insert(CommentDTO comment);
+	int insert(CommentDTO comment) throws SQLException;
 
 	/**
-	 * UPDATE COMMENTLIST SET CONTEXT = ? WHERE COMMENT_ID = ?
-	 * @param comment
-	 * @return
-	 */
-	int update(CommentDTO comment);
-
-	/**
-	 * DELETE COMMENTLIST WHERE COMMENT_ID = ?
+	 * DELETE COMMENTLIST WHERE COMMENT_ID=?
 	 * @param commentId
 	 * @return
+	 * @throws SQLException 
 	 */
-	int delete(String commentId);
-
+	int delete(String commentId) throws SQLException;
+	
 }
