@@ -44,12 +44,12 @@
 		} // 보드 리스트 가져오는 ajax 종료.
 		
 		function printStar(rating) {
-			var str = ''
+			var str = '';
 			for(i=0 ; i < rating ; i++){
 				str += '<img src="${rootPath}/img/ico_star_big.png" style="width:10px; height:10px">'
 			}
-			console.log(str)
-			return str
+			console.log(str);
+			return str;
 		}
 		////////////////////////////////////////////////
 		// 코멘트 등록하기
