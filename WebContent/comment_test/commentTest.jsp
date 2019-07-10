@@ -51,7 +51,7 @@
 	<div class="innerWrap mainWrap">
 		<div class="container mt-5">
 			<c:choose>
-				<c:when test="${sessionScope.userId!= null}">
+				<c:when test="${sessionUser!= null}">
 					<form action="board" method="post" class="mt-2">
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" name="txtComment"
