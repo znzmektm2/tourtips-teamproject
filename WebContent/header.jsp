@@ -49,26 +49,26 @@
 			<ul class="lnbList">
 				<li>
 					<ul>
-						<li><a href="dest/hongkong"><img src="${pageContext.request.contextPath}/img/menu_icon/HONGKONG.gif" alt="투어팁스">홍콩</a></li>
-						<li><a href="dest/hongkong">홍콩</a></li>
-						<li><a href="dest/hongkong">홍콩</a></li>
+						<li><a href="${rootPath}/dest/hongkong"><img src="${rootPath}/img/menu_icon/HONGKONG.gif" alt="투어팁스">홍콩</a></li>
+						<li><a href="${rootPath}/dest/hongkong">홍콩</a></li>
+						<li><a href="${rootPath}/dest/hongkong">홍콩</a></li>
 					</ul>
 				</li>
 				<li>
 					<ul>
-						<li><a href="dest/macau">마카오</a></li>
-						<li><a href="dest/macau">마카오</a></li>
-						<li><a href="dest/macau">마카오</a></li>
+						<li><a href="${rootPath}/dest/macau">마카오</a></li>
+						<li><a href="${rootPath}/dest/macau">마카오</a></li>
+						<li><a href="${rootPath}/dest/macau">마카오</a></li>
 					</ul>
 				</li>
 				<li>
 					<ul>
-						<li><a href="dest/singapore">싱가포르</a></li>
+						<li><a href="${rootPath}/dest/singapore">싱가포르</a></li>
 					</ul>
 				</li>
 				<li>
 					<ul>
-						<li><a href="dest/newyork">뉴욕</a></li>
+						<li><a href="${rootPath}/dest/newyork">뉴욕</a></li>
 					</ul>
 				</li>
 			</ul>
