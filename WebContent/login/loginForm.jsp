@@ -11,17 +11,28 @@
 </head>
 <body>
 	<%@ include file="/header.jsp"%>
-	<div class="innerWrap mainWrap">
-		<c:if test="${sessionUser != null}">
-			<% response.sendRedirect(application.getContextPath()); %>
-		</c:if>
-		<form method="post" action="${rootPath}/join">
-			<input type="hidden" name="command" value="login">
-			<input type="hidden" name="returnURL" value="<%=request.getHeader("referer")%>">
-			ID : <input type="text" name="userId"><br>
-			PWD : <input type="password" name="userPwd"><br>
-			<input type="submit" value="로그인">
-		</form>
+	<div class="innerWrap signWrap">
+		<div class="form">
+			<h2>SIGN IN</h2>
+			<form method="post" action="${rootPath}/join">
+				<input type="hidden" name="command" value="login">
+				<input type="hidden" name="returnURL" value="<%=request.getHeader("referer")%>">
+				
+				<div>
+					<label>아이디</label>
+					<div><input type="text" name="userId"></div>
+				</div>
+				<div>
+					<label>비밀번호</label>
+					<div><input type="password" name="userPwd"></div>
+				</div>
+				<div class="btn">
+					<input class="red" type="submit" value="로그인">
+				</div>
+			</form>
+			<p class="copy">Copyright (주)투어팁스 All right reserved.</p>
+		</div>
+
 	</div>
 	<%@ include file="/footer.jsp"%>
 </body>
