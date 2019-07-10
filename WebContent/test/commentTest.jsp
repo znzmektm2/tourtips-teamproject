@@ -1,3 +1,5 @@
+<%@page import="project.model.dto.PlaceDTO"%>
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -10,9 +12,31 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+<script>
+	$(function(){
+		$.ajax() {
+			type: "post",
+            url: "../commentSelectByPlace",
+            dataType: "json",
+            success: function (result) {
+                var table = '';
+                $(result).each(function (index, item) {
+                    
+                })
+                $('tbody').append(table)
+            },
+            error: function (err) {
+                console.log(err)
+            }
+		}
+	});
+</script>
 </head>
 <body>
+<%
+	Map<String, PlaceDTO> map = (Map<String, PlaceDTO>) application.getAttribute("PlaceAll");
+	request.setAttribute("location", map.get(1));
+%>
 	<div class="container mt-5">
 		<c:choose>
 			<c:when test="${sessionScope.userId!= null}">
@@ -44,13 +68,7 @@
 					<col width="70%">
 					<col width="20%">
 				</colgroup>
-				<c:forEach items="${boardList}" var="list">
-					<tr>
-						<td>${list.name}</td>
-						<td>${list.subject}</td>
-						<td>${list.date}</td>
-					</tr>
-				</c:forEach>
+				
 				</tbody>
 			</table>
 		</div>

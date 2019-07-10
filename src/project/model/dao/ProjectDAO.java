@@ -85,7 +85,7 @@ public class ProjectDAO {
 				String call = rs.getString("CALL");
 				String content = rs.getString("CONTENT");
 
-				result.put(id, new PlaceDTO(id, name, cityId, type, localTime, website, area, enterance, operating,
+				result.put(id, new PlaceDTO(Integer.parseInt(id), name, cityId, type, localTime, website, area, enterance, operating,
 						howto, call, content));
 			} 
 		} finally {

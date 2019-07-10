@@ -132,48 +132,5 @@ public class CommentDAOImpl implements CommentDAO {
 //		
 //		return null;
 //	}
-//
-//	@Override
-//	public int insert(CommentDTO comment) throws SQLException {
-//		Connection con = null;
-//		PreparedStatement ps =null;
-//		CommentDTO co =null;
-//		int result=0;
-//		String sql ="INSERT INTO COMMENTLIST(COMMENT_ID, CITY_ID, USER_ID, CONTEXT, RATING, DATE_CREATED) VALUES(SEQ_COMMENT_ID.NEXTVAL(), ?,?,?,?,SYSDATE);";
-//		try {
-//			con = DbUtil.getConnection();
-//			ps = con.prepareStatement(sql);
-//			
-//			ps.setString(1, co.getCityId());
-//			ps.setString(2, co.getUserId());
-//			ps.setString(3, co.getContext());
-//			ps.setInt(4, co.getRating());
-//			
-//			result = ps.executeUpdate();
-//			
-//		}finally {
-//			DbUtil.dbClose(ps, con);
-//		}
-//		return result;
-//	}
-//
-//	@Override
-//	public int delete(String commentId) throws SQLException {
-//		Connection con=null;
-//		PreparedStatement ps=null;
-//		int result=0;
-//		
-//		String sql="DELETE COMMENTLIST WHERE COMMENT_ID = ?";
-//		
-//		try {
-//			con = ps.getConnection();
-//			ps = con.prepareStatement(sql);
-//			ps.setString(1, commentId.trim());
-//			
-//			result = ps.executeUpdate();
-//		}finally {
-//			DbUtil.dbClose(ps, con);
-//		}
-//		return result;
-//	}
+
 }
