@@ -62,20 +62,21 @@ img{border:0;}
 
 /* header */
 .innerWrap{margin:0 auto;position:relative;width:1200px;text-align:center;}
-.headerTop>div{position:absolute;display:inline-block;}
-.search{left:0;top:60px;width:218px;height:32px;border:1px solid #c1c1c1;border-radius:25px;}
+.headerTop{line-height:0;}
+.headerTop>div{position:absolute;display:inline-block;line-height:1.2;}
+.search{left:0;top:50px;width:218px;height:32px;border:1px solid #c1c1c1;border-radius:25px;box-sizing:border-box;}
 .search>form{height:100%;}
-#keyWord{position:absolute;left:14px;border:0;height:32px;outline: none;}
+#keyWord{position:absolute;top:0;left:14px;width:169px;border:0;height:30px;outline: none;}
 #search_btn{position: absolute;top:3px;right:3px;width:27px;height:27px;text-indent: -9999px;border: 0 none;cursor: pointer;outline: none;background: url(../img/spr_ico_common.png) 5px 5px no-repeat;}
 h1{display:inline-block;}
-.login{right:0;top:60px;}
+.login{right:0;top:50px;}
 nav{position:relative;text-align:center;font-size: 0;line-height: 0;background:#fff;}
 nav:before{content:"";position:absolute;top:0;left:50%;margin-left:-1000px;width:2000px;height:58px;background:#f37720;}
 nav .gnbList{position:relative;display:inline-block;}
-nav .gnbList>li{position:relative;display:inline-block;vertical-align: top;width: 154px;line-height:58px;font-size: 18px;font-weight: 400;color: #fff;background:#f37720;cursor:pointer;}
+nav .gnbList>li{position:relative;display:inline-block;vertical-align: top;width: 154px;line-height:58px;font-size: 18px;font-weight: 400;color: #fff;background:#f37720;}
 nav .gnbList>li>span:hover{background:#d4681c;}
 nav.on .lnbList{display:block;}
-nav .lnbList{display:none;position:relative;width:100%;background: #fff;z-index: 1;overflow: hidden;}
+nav .lnbList{display:none;position:absolute;width:100%;background: #fff;z-index: 1;box-shadow: 0 0 20px rgba(0,0,0,.1);border-bottom:1px solid #e5e5e5;overflow: hidden;}
 nav .lnbList>li{position:relative;display:inline-block;vertical-align: top;padding:21px 0;width: 154px;line-height:39px;text-align:left;text-indent:20px;}
 nav .lnbList>li:before{content:"";position: absolute;top:0;left:0;width:1px;height:500px;background:#e5e5e5;z-index: 1;}
 nav .lnbList>li:last-child:after{content:"";position: absolute;top:0;right:0;width:1px;height:500px;background:#e5e5e5;z-index: 1;}
@@ -83,7 +84,22 @@ nav .lnbList>li>ul>li>a{display:block;color:#555;font-size:15px;letter-spacing:0
 nav .lnbList>li>ul>li>a:hover{color: #f37720;}
 nav .lnbList>li>ul>li>a img{width: 30px;margin:0 10px 2px 0;vertical-align: middle;}
 
+/* loginForm */
 
+/* signInForm */
+.signWrap .form{margin: 0 auto;padding:80px 20px;width: 640px; box-sizing: border-box;text-align: left;}
+.signWrap .form h2{text-align: center;font-size: 50px;line-height:1.5;font-weight: 800;color: #333;}
+.signWrap form label{display: inline-block;margin-bottom: 10px;font-size: 12px;font-weight: 700;color: #666;float: none;position: relative;padding-right: 10px;margin: 0 0 7px;text-align: left;}
+.signWrap form label:after{content: "*";position: relative;top: 2px;display: inline-block;color: #f06c5e;margin-left: 3px;}
+.signWrap form>div{margin-top: 25px;}
+.signWrap form input{padding:0 15px;width:100%;border:solid 1px #ccc;height: 40px;line-height: 40px;border-radius: 7px;outline: 0;box-sizing:border-box;}
+.signWrap .btn{margin-top:60px;padding-top:50px;text-align: center;border-top: 1px dashed #ccc;}
+.signWrap .btn input{transition: .3s;width:auto;min-width: 140px;height: 50px;line-height: 50px;padding: 0 30px;font-size: 15px;font-weight: 700;border-radius: 30px;border:none;cursor:pointer;}
+.signWrap .btn input:hover{opacity: 0.8;}
+.signWrap form .gray{background-color: #666;color: #fff;}
+.signWrap form .red{margin-left: 15px;background-color: #f06c5e;color: #fff;}
+.signWrap .copy{padding: 50px 0 0;font-size: 13px;color: #999;text-align: center;}    
+    
 /* visualWrap */
 .visualWrap{position:relative;text-align: center;}
 .video{min-width: 100%;min-height: 506px;z-index: 1;}
@@ -103,7 +119,7 @@ nav .lnbList>li>ul>li>a img{width: 30px;margin:0 10px 2px 0;vertical-align: midd
 .textWrap ul li dl dd{display:block;font-size:16px;line-height:24px;opacity:0.7;filter:alpha(opacity=70);}
 
 /* lnb */
-.lnb{position: absolute;top:0;left:0;width:200px;text-align:left;}
+.lnb{position: absolute;top:110px;left:0;width:200px;text-align:left;}
 .lnb.fixed{z-index:10;position:fixed;top:108px;}
 .lnb h3{display:block;min-height:26px;line-height:120%;color:#232323;font-size:26px;;vertical-align:middle;margin:0 0 15px;}
 .lnb ul{border-top: 1px solid #999;border-bottom: 1px solid #999;}
@@ -113,19 +129,46 @@ nav .lnbList>li>ul>li>a img{width: 30px;margin:0 10px 2px 0;vertical-align: midd
 .lnb>ul>li>a:hover,.lnb>ul>li.active>a{color: #f06c5e;}
 
 /* subWrap */
-.subWrap{margin:110px auto;overflow:hidden;}
-.subWrap .content{padding-left: 250px;}
+.subWrap{margin:0 auto;overflow:hidden;}
+.content{padding-left: 250px;}
+.spotList{padding:110px 0 70px 0;}
 .spotList>div{margin-bottom:30px;clear:both;overflow:hidden;}
 .spotList>div h3{text-align:left;line-height:1;font-size:26px;letter-spacing:-1px;font-weight:400;color:#232323;margin:0 0 20px;}
 .spotList>div>ul{padding:15px 0;border-top: 1px solid #999;}
 .spotList>div>ul>li{padding:15px 15px;width:33.33%;float:left;box-sizing: border-box;text-align:left;}
-.spotList>div>ul>li>a{border-radius: 12px;box-shadow: 0 2px 24px rgba(0,0,0,.1);overflow:hidden;}
+.spotList>div>ul>li>a{border-radius: 12px;box-shadow: 0 2px 15px rgba(0,0,0,.1);overflow:hidden;}
 .spotList>div>ul>li>a img{width:100%;}
 .spotList>div>ul>li .info{height:160px;padding: 19px 25px 21px;box-sizing: border-box;}
 .spotList>div>ul>li .info .category{display:inline-block;padding:0 4px;height:18px;color:#FFF;font-size:12px;line-height:18px;background:#4f4f4f;}
 .spotList>div>ul>li .info .title{display:block;margin-top:5px;font-size: 16px;font-weight: 700;line-height: 1.5;}
-.spotList>div>ul>li .info .txt{margin-top:3px;font-size:14px;color:#777;line-height:20px;}
+.spotList>div>ul>li .info .txt{margin-top:3px;height:40px;overflow:hidden;font-size:14px;color:#777;line-height:20px;}
+
+/* place */
+.placeWrap{margin:0 auto;overflow:hidden;}
+.article-title{padding:110px 0 100px 0;text-align:left;border-left:1px solid #e5e5e5;}
+title_area{padding-left:60px;}
+.title_area h4{display:inline;font-size:36px;color:#333;font-weight:300;letter-spacing:-1px;line-height:120%;margin-right:10px;vertical-align:middle;}
+.title_area .star{position:relative;display:inline-block;height:22px;line-height:22px;color:#ff4f02;font-weight:500;
+font-size:20px;vertical-align:middle;padding-left:28px;background:url('../img/ico_star_big.png') 0 center no-repeat;}
+.carousel{margin-top:20px;margin-left:60px;}
+.carousel-inner{size: 70%; width: 300px}
+.carousel-inner .item img{width:100%;}
+.carousel-control .glyphicon-chevron-left{left:20%;}
+.carousel-control .glyphicon-chevron-right{right:20%;}
+.carousel-control{width:30%;}
+#cnt-cont{padding:50px 50px 60px;background: #f7f7f7;}
+.cnt-info{padding:40px 0 30px 60px;overflow:hidden;border-bottom:1px solid #;}
+.cnt-info>ul{float: left; display: inline-block; width: 50%; padding-right: 40px; box-sizing: border-box;}
+.cnt-info>li{margin: 10px 0px 0px;padding: 0px 0px 18px 20px;}
+.cnt-info>ul>li{padding:10px 0 10px 30px;position:relative;font-size: 15px;color: #232323;line-height: 24px;}
+.cnt-info>ul>li img{position:absolute;top:13px;left:0;width:5%;}
+.title_area{margin-left:60px;display: inline-block;}
 
 /* footer */
-footer{clear:both;height:200px;background: #f1f1f1;}
-
+footer{clear:both;background: #f1f1f1;font-size:12px;}
+footer .information {position: relative;padding: 35px 60px;line-height: 20px;color: #999;border-top: 1px solid #e5e5e5;text-align: left;}
+footer .information .business span+span:before {content: "";display: inline-block;width: 1px;height: 11px;margin: 0 6px 0 7px;border-left: 1px solid #ccc;vertical-align: -1px}
+footer .information .business span:last-child {margin-left: 14px}
+footer .information .business span:last-child:before {display: none}
+footer .information .contact address {display: inline;font-style: normal}
+footer .information .contact address:after {content: " | "}

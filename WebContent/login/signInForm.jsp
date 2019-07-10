@@ -35,24 +35,38 @@
 </head>
 <body>
 	<%@ include file="/header.jsp"%>
-	<form name="writeForm" method="post" action="${rootPath}/join?command=insert" onSubmit='return checkValid()'>
-		<c:if test="${sessionUser != null}">
-			<%
-				response.sendRedirect(application.getContextPath());
-			%>
-		</c:if>
-		<div>
-			<b> 회원 가입 </b>
+	<div class="innerWrap signWrap">
+		<div class="form">
+			<h2>SIGN UP</h2>
+			<form name="writeForm" method="post" action="${rootPath}/join?command=insert" onSubmit='return checkValid()'>
+				<div>
+					<label>아이디</label>
+					<div><input type=text name="userId" maxlength=10></div>
+				</div>
+				<div>
+					<label>비밀번호</label>
+					<div><input type=password name="password" maxlength=15></div>
+				</div>
+				<div>
+					<label>이름</label>
+					<div><input type=text name="name"></div>
+				</div>
+				<div>
+					<label>이메일</label>
+					<div><input type="email" name="email"></div>
+				</div>
+				<div class="btn">
+					<input class="gray" type=submit value=가입하기>
+					<input class="red" type=reset value=다시쓰기>
+				</div>
+				<div>
+					<input type="hidden" name="returnURL" value="<%=request.getHeader("referer")%>">
+				</div>
+			</form>
+			<p class="copy">Copyright (주)투어팁스 All right reserved.</p>
+
 		</div>
-		<div>
-			<label>아이디</label><input type=text name="userId" maxlength=10><br>
-			<label>비밀번호</label><input type=password name="password" maxlength=15><br>
-			<label>이름</label><input type=text name="name"><br>
-			<label>이메일</label><input type="email" name="email"><br>
-			<input type=submit value=수정하기><input type=reset value=다시쓰기>
-			<input type="hidden" name="returnURL" value="<%=request.getHeader("referer")%>">
-		</div>
-	</form>
+	</div>
 	<%@ include file="/footer.jsp"%>
 </body>
 </html> 
