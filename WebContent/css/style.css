@@ -64,12 +64,12 @@ img{border:0;}
 .innerWrap{margin:0 auto;position:relative;width:1200px;text-align:center;}
 .headerTop{line-height:0;}
 .headerTop>div{position:absolute;display:inline-block;line-height:1.2;}
-.search{left:0;top:60px;width:218px;height:32px;border:1px solid #c1c1c1;border-radius:25px;box-sizing:border-box;}
+.search{left:0;top:50px;width:218px;height:32px;border:1px solid #c1c1c1;border-radius:25px;box-sizing:border-box;}
 .search>form{height:100%;}
 #keyWord{position:absolute;top:0;left:14px;width:169px;border:0;height:30px;outline: none;}
 #search_btn{position: absolute;top:3px;right:3px;width:27px;height:27px;text-indent: -9999px;border: 0 none;cursor: pointer;outline: none;background: url(../img/spr_ico_common.png) 5px 5px no-repeat;}
 h1{display:inline-block;}
-.login{right:0;top:60px;}
+.login{right:0;top:50px;}
 nav{position:relative;text-align:center;font-size: 0;line-height: 0;background:#fff;}
 nav:before{content:"";position:absolute;top:0;left:50%;margin-left:-1000px;width:2000px;height:58px;background:#f37720;}
 nav .gnbList{position:relative;display:inline-block;}
@@ -150,7 +150,7 @@ title_area{padding-left:60px;}
 .title_area h4{display:inline;font-size:36px;color:#333;font-weight:300;letter-spacing:-1px;line-height:120%;margin-right:10px;vertical-align:middle;}
 .title_area .star{position:relative;display:inline-block;height:22px;line-height:22px;color:#ff4f02;font-weight:500;
 font-size:20px;vertical-align:middle;padding-left:28px;background:url('../img/ico_star_big.png') 0 center no-repeat;}
-.carousel{margin-top:20px;padding-left:60px;width:100%;}
+.carousel{margin-top:20px;margin-left:60px;}
 .carousel-inner{size: 70%; width: 300px}
 .carousel-inner .item img{width:100%;}
 .carousel-control .glyphicon-chevron-left{left:20%;}
@@ -162,7 +162,7 @@ font-size:20px;vertical-align:middle;padding-left:28px;background:url('../img/ic
 .cnt-info>li{margin: 10px 0px 0px;padding: 0px 0px 18px 20px;}
 .cnt-info>ul>li{padding:10px 0 10px 30px;position:relative;font-size: 15px;color: #232323;line-height: 24px;}
 .cnt-info>ul>li img{position:absolute;top:13px;left:0;width:5%;}
-.title_area{display: inline-block;}
+.title_area{margin-left:60px;display: inline-block;}
 
 /* footer */
 footer{clear:both;background: #f1f1f1;font-size:12px;}
