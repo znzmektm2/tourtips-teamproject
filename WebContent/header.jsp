@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="${rootPath}/css/style.css" />
-
+<script type="text/javascript" src="${rootPath}/js/jquery-3.4.1.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -39,13 +39,52 @@
 				</c:choose>
 			</div>
 		</div>
-		<div>
-			<a href="${rootPath}/dest/hongkong"> 홍콩 </a><br> <a
-				href="${rootPath}/dest/macau"> 마카오 </a><br> <a
-				href="${rootPath}/dest/singapore"> 싱가포르 </a><br> <a
-				href="${rootPath}/dest/bangkok"> 방콕 </a><br> <a
-				href="${rootPath}/dest/hongkong/nara"> 나</a>
-		</div>
+		<nav class="on">
+			<ul class="gnbList">
+				<li>아시아</li>
+				<li>동남아</li>
+				<li>유럽</li>
+				<li>미주</li>
+			</ul>
+			<ul class="lnbList">
+				<li>
+					<ul>
+						<li><a href="dest/hongkong"><img src="${pageContext.request.contextPath}/img/menu_icon/HONGKONG.gif" alt="투어팁스">홍콩</a></li>
+						<li><a href="dest/hongkong">홍콩</a></li>
+						<li><a href="dest/hongkong">홍콩</a></li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li><a href="dest/macau">마카오</a></li>
+						<li><a href="dest/macau">마카오</a></li>
+						<li><a href="dest/macau">마카오</a></li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li><a href="dest/singapore">싱가포르</a></li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li><a href="dest/newyork">뉴욕</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 	</header>
 </body>
+<script>
+$(function() {
+	//상단메뉴 활성화
+	$('nav').mouseenter(function() {
+		$(this).addClass('on');
+	});
+	
+	$('nav').mouseleave(function() {
+		$(this).removeClass('on');
+	});
+});
+</script>
 </html>

@@ -6,6 +6,7 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import project.controller.Controller;
+import project.model.dto.CityDTO;
 import project.model.service.ProjectService;
 
 import java.util.HashMap;
@@ -43,9 +44,12 @@ public class InitialConfigListener implements ServletContextListener {
          */
         application.setAttribute("rootPath", application.getContextPath());
         ProjectService service = new ProjectService();
-        application.setAttribute("CityAll", service.selectAllCity());
-        application.setAttribute("PlaceAll", service.selectAllPlace());
-        
+        Map<String, CityDTO> cityMap = service.selectAllCity();
+        application.setAttribute("CityAll", cityMap);
+        application.setAttribute("Cities", cityMap.values());
+        application.setAttribute("PlaceAll", service.selectAllPlace()); 
+        application.setAttribute("PopularAll", service.selectAllPopular()); 
+
     }
 
     public void contextDestroyed(ServletContextEvent sce) {

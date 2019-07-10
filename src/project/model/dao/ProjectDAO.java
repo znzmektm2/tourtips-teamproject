@@ -9,6 +9,7 @@ import java.util.Map;
 
 import project.model.dto.CityDTO;
 import project.model.dto.PlaceDTO;
+import project.model.dto.PopularLocationDTO;
 import project.util.DbUtil;
 
 public class ProjectDAO {
@@ -93,4 +94,28 @@ public class ProjectDAO {
 		}
 		return result;
 	}
+
+	/////////////////////////////////////////////////
+	// PopularLocation 관련
+	
+	public List<PopularLocationDTO> selectAllPopular() throws SQLException {
+		String sql = "SELECT * FROM POPULAR_LOCATION";
+
+		Connection conn = DbUtil.getConnection();
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		List<PopularLocationDTO> result = new ArrayList<>();
+
+		while (rs.next()) {
+			String nemu = rs.getString("MENU");
+			String category = rs.getString("CATEGORY");
+			String cityname = rs.getString("NAME");
+			String text = rs.getString("TEXT");
+			String placeId = rs.getString("PLACE_ID");
+			String cityId = rs.getString("CITY_ID");
+			result.add(new PopularLocationDTO(nemu, category, cityname, text, placeId, cityId));
+		}
+		return result;
+	}
+	
 }
