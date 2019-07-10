@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import project.model.dto.CommentDTO;
 import project.model.dto.PlaceDTO;
 import project.model.service.CommentService;
@@ -27,16 +28,20 @@ public class CommentSelectByPlaceServlet extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("CommentSelectByPlaceServletCalled");
 		String placeId = request.getParameter("placeId");
-		List<CommentDTO> list = null;
 
 		try {
-			list = service.selectByPlaceId(Integer.parseInt(placeId));
-
+			List<CommentDTO> list = service.selectByPlaceId(Integer.parseInt(placeId));
+			int[] rating = service.ratings(Integer.parseInt(placeId));
+			
 			JSONArray jsonArr = JSONArray.fromObject(list);
+			JSONObject finalObj = new JSONObject();
+			finalObj.put("list",jsonArr);
+			finalObj.put("ratings", JSONArray.fromObject(rating));
 			System.out.println(jsonArr);
+			System.out.println(finalObj);
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println(jsonArr);
+			out.println(finalObj);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

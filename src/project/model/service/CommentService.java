@@ -12,4 +12,6 @@ public interface CommentService {
 	int insert(CommentDTO comment) throws SQLException;
 
 	int delete(String commentId) throws SQLException;
+	
+	int[] ratings(int placeId) throws SQLException;
 }
