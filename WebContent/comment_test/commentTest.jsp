@@ -58,8 +58,8 @@
 				<c:when test="${sessionScope.userId!= null}">
 					<form action="board" method="post" class="mt-2">
 						<div class="input-group mb-3">
-							<input type="text" class="form-control" name="txtComment"
-								placeholder="여기에 글쓰면 된다.">
+							<input type="text" class="form-control" name="txtComment">
+							
 							<div class="input-group-append">
 								<input type="submit" name="btnSubmit"
 									class="btn btn-outline-secondary">

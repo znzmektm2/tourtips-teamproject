@@ -52,7 +52,7 @@
 						<li>
 							<a href="./${location.id}/${popularLocation.placeId}">
 								<div class="thumb">
-									<img src="../img/IFC 55층 전망대_1.jpg" alt="">
+									<img src="../img/${popularLocation.placeId}/1.jpg" alt="">
 									<span class="cover"></span>
 								</div>
 								<div class="info">
