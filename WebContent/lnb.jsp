@@ -12,7 +12,7 @@
 		<ul>
 			<li class="active"><a href="javascript:;">전체</a></li>
 			<c:forEach items="${popular}" var="popularLocation" varStatus="state">
-				<li><a href="javascript:;">${popularLocation.menu}</a></li>
+				<li><a href="${rootPath}/desc/">${popularLocation.menu}</a></li>
 			</c:forEach>
 		</ul>
 	</div>
