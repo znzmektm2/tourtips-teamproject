@@ -17,7 +17,7 @@ public class UpdateController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "errorView/error.jsp";
+		String url = "/errorView/error.jsp";
 		
 		ModelAndView mv = new ModelAndView();
 		

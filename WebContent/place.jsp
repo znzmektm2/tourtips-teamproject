@@ -18,56 +18,49 @@
 		////////////////////////////////////////////////
 		// 코멘트 보드 리스트 가져오기
 		function loadBoard() {
-			$
-					.ajax({
-						type : "post",
-						url : "${rootPath}/CommentSelectByPlace",
-						dataType : "json",
-						data : {
-							placeId : "${location.id}"
-						},
-						success : function(result) {
-							var table = ''
-							var count = 0
-							$(result.list).each(
-									function(index, item) {
-										table += '<tr><td>' + item.userId
-												+ '</td><td>' + item.context
-												+ '</td><td>'
-												+ printStar(item.rating)
-												+ '</td><td>'
-												+ item.dateCreated
-												+ '</td></tr>';
-										count++;
-									})
-							$('tbody tr').remove();
-							$('tbody').append(table)
+			$.ajax({
+				type : "post",
+				url : "${rootPath}/CommentSelectByPlace",
+				dataType : "json",
+				data : {
+					placeId : "${location.id}"
+				},
+				success : function(result) {
+					var table = ''
+					var count = 0
+					$(result.list).each(
+							function(index, item) {
+								table += '<tr><td>' + item.userId + '</td><td>'
+										+ item.context + '</td><td>'
+										+ printStar(item.rating) + '</td><td>'
+										+ item.dateCreated + '</td></tr>';
+								count++;
+							})
+					$('tbody tr').remove();
+					$('tbody').append(table)
+					
+					/////// 이거 레이팅 및 숫자 변동
+					$('#reviewCount').text(count);
+					
+					var total = (result.ratings[0]*1 + result.ratings[1]*2 + result.ratings[2]*3 + result.ratings[3]*4 + result.ratings[4]*5)/count
+					$('#totalRating').text(total.toFixed(1));					
 
-							/////// 이거 레이팅 및 숫자 변동
-							$('#reviewCount').text(count);
-
-							var total = (result.ratings[0] * 1
-									+ result.ratings[1] * 2 + result.ratings[2]
-									* 3 + result.ratings[3] * 4 + result.ratings[4] * 5)
-									/ count
-							$('#totalRating').text(total.toFixed(1));
-
-							$('#rating1').text(result.ratings[0]);
-							$('#rating2').text(result.ratings[1]);
-							$('#rating3').text(result.ratings[2]);
-							$('#rating4').text(result.ratings[3]);
-							$('#rating5').text(result.ratings[4]);
-						},
-						error : function(err) {
-							console.log(err)
-						}
-					})
+					$('#rating1').text(result.ratings[0]);
+					$('#rating2').text(result.ratings[1]);
+					$('#rating3').text(result.ratings[2]);
+					$('#rating4').text(result.ratings[3]);
+					$('#rating5').text(result.ratings[4]);
+				},
+				error : function(err) {
+					console.log(err)
+				}
+			})
 		} // 보드 리스트 가져오는 ajax 종료.
-
+		
 		/** 별찍기 함수 */
 		function printStar(rating) {
 			var str = '';
-			for (i = 0; i < rating; i++) {
+			for(i=0 ; i < rating ; i++){
 				str += '<img src="${rootPath}/img/ico_star_big.png" style="width:10px; height:10px">'
 			}
 			return str;
@@ -75,21 +68,21 @@
 
 		////////////////////////////////////////////////
 		// 코멘트 등록하기
-		$(document).on('click', '#btnSubmit', function() {
+		$(document).on('click','#btnSubmit', function() {
 			$.ajax({
 				type : "post",
 				url : "${rootPath}/CommentInsert",
 				dataType : "json",
 				data : $('#commentForm').serialize(),
 				success : function(result) {
-					loadBoard();
+					loadBoard();		
 				},
 				error : function(err) {
 					console.log(err)
 				}
 			})
 		}) // 등록하기 ajax 종료
-
+		
 		loadBoard();
 	});
 </script>
@@ -107,7 +100,8 @@
 				<!-- 이미지 슬라이드 div -->
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 					<!--페이지-->
-					<ol class="carousel-indicators">
+					<ol class="carousel-indicators">						
+						<!-- 슬라이드 버튼 반복문으로 돌리기 -->						
 						<c:forEach items="${imgNames}" var="img" varStatus="status">
 							<c:choose>
 								<c:when test="${status.index == 0}">
@@ -119,14 +113,11 @@
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-
-						<!-- 슬라이드 버튼 반복문으로 돌리기 -->
-						<!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li> -->
 					</ol>
 					<!--페이지-->
 
-					<div class="carousel-inner" style="width: 100%">
+					<div class="carousel-inner" style="width: 100%">						
+						<!--슬라이드, 반복문으로 돌려야 됨-->
 						<c:forEach items="${imgNames}" var="img" varStatus="status">
 							<c:choose>
 								<c:when test="${status.index == 0}">
@@ -145,22 +136,6 @@
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-						<!--슬라이드1, 슬라이드 반복문으로 돌려야 됨-->
-						<%-- 						<div class="item active">
-							<img src="${rootPath}/img/${location.id}/${imgNames[0]}"
-								style="width: 100%" alt="First slide">
-							<div class="container"></div>
-						</div>
-						<!--슬라이드1-->
-
-						<!--슬라이드2-->
-						<div class="item">
-							<img src="${rootPath}/img/${location.id}/${imgNames[1]}"
-								style="width: 100%" data-src="" alt="Second slide">
-							<div class="container"></div>
-						</div>
- --%>
-						<!--슬라이드2-->
 					</div>
 
 					<!--이전, 다음 버튼-->
@@ -195,45 +170,33 @@
 					</ul>
 				</div>
 				<div id="cnt-cont">${location.content}</div>
-
+				
 				<div>
-					<div>
-						리뷰 : <span id="reviewCount"></span>
-					</div>
-					<div>
-						평점 : <span id="totalRating"></span>
-					</div>
-					<div>
-						일점 : <span id="rating1"></span>
-					</div>
-					<div>
-						이점 : <span id="rating2"></span>
-					</div>
-					<div>
-						삼점 : <span id="rating3"></span>
-					</div>
-					<div>
-						사점 : <span id="rating4"></span>
-					</div>
-					<div>
-						오점 : <span id="rating5"></span>
-					</div>
+					<div>리뷰 : <span id="reviewCount"></span></div>
+					<div>평점 : <span id="totalRating"></span></div>
+					<div>일점 : <span id="rating1"></span></div>
+					<div>이점 : <span id="rating2"></span></div>
+					<div>삼점 : <span id="rating3"></span></div>
+					<div>사점 : <span id="rating4"></span></div>
+					<div>오점 : <span id="rating5"></span></div>					
 				</div>
-
+				
 				<div class="review">
 					<c:choose>
 						<c:when test="${sessionUser!= null}">
 							<form id=commentForm method="post">
 								<div>
-									<label> ${sessionUser.userId }</label> <input type="text"
-										name="txtComment"> <span> <input type="radio"
-										name="rating" value="1"> <input type="radio"
-										name="rating" value="2"> <input type="radio"
-										name="rating" value="3"> <input type="radio"
-										name="rating" value="4"> <input type="radio"
-										name="rating" value="5">
-									</span> <input id="btnSubmit" type="button" value="등록하기"> <input
-										type="hidden" name="userId" value="${sessionUser.userId}">
+									<label> ${sessionUser.userId }</label>
+									<input type="text" name="txtComment">
+									<span>
+										<input type="radio" name="rating" value="1">
+										<input type="radio" name="rating" value="2">
+										<input type="radio" name="rating" value="3">
+										<input type="radio" name="rating" value="4">
+										<input type="radio" name="rating" value="5">
+									</span>
+									<input id="btnSubmit" type="button" value="등록하기">
+									<input type="hidden" name="userId" value="${sessionUser.userId}">
 									<input type="hidden" name="placeId" value="${location.id}">
 								</div>
 							</form>

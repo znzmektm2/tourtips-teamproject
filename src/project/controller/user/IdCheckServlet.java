@@ -24,9 +24,7 @@ public class IdCheckServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		try {
 			UserService.idCheck(userId);
-			System.out.println(111);
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
 			out.println(e.getMessage());
 			
 		}
