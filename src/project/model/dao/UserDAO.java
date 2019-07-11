@@ -54,8 +54,6 @@ public class UserDAO {
 			if (rs.next()) {
 				user = new UserDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
@@ -133,8 +131,6 @@ public class UserDAO {
 			ps.setString(3, userDTO.getEmail());
 			ps.setString(4, userDTO.getUserId());
 			result = ps.executeUpdate();
-		} catch (Exception e) {
-			e.getMessage();
 		} finally {
 			DbUtil.dbClose(ps, con);
 		}

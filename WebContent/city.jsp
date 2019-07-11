@@ -3,7 +3,7 @@
 <div class="visualWrap">
 	<div class="video">
 		<video class="view player" autoplay loop muted="false">
-			<source src="../img/video/${location.id}.mp4" type="video/mp4">
+			<source src="../img/video/${location.cityId}.mp4" type="video/mp4">
 		</video>
 	</div>
 	<div class="textWrap">
@@ -41,7 +41,7 @@
 				<ul>
 					<c:forEach items="${popularMenus.popularLocations}" var="popularLocation">
 					<li>
-						<a href="./${location.id}/${popularLocation.placeId}">
+						<a href="./${location.cityId}/${popularLocation.placeId}">
 							<div class="thumb">
 								<img src="../img/${popularLocation.placeId}/1.jpg" alt="">
 								<span class="cover"></span>

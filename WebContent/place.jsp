@@ -38,7 +38,11 @@ $(function() {
 				$('#reviewCount').text(count);
 				
 				var total = (result.ratings[0]*1 + result.ratings[1]*2 + result.ratings[2]*3 + result.ratings[3]*4 + result.ratings[4]*5)/count
-				$('#totalRating').text(total.toFixed(1));					
+				if(isNaN(total)){
+					total = 0;
+				}
+				$('#totalRating').text(total.toFixed(1));	
+				$('p.star').text(total.toFixed(1))
 
 				$('#rating1').text(result.ratings[0]);
 				$('#rating2').text(result.ratings[1]);
@@ -112,12 +116,13 @@ $(function() {
 		<div class="article-title">
 			<div class="title_area">
 				<h4>${location.name}</h4>
-				<p class="star">4.2</p>
+				<p class="star">0.0</p>
 			</div>
 			<!-- 이미지 슬라이드 div -->
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!--페이지-->
 				<ol class="carousel-indicators">
+					<!-- 슬라이드 버튼 반복문으로 돌리기 -->
 					<c:forEach items="${imgNames}" var="img" varStatus="status">
 						<c:choose>
 							<c:when test="${status.index == 0}">
@@ -129,14 +134,10 @@ $(function() {
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
-
-					<!-- 슬라이드 버튼 반복문으로 돌리기 -->
-					<!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li> -->
 				</ol>
 				<!--페이지-->
-
 				<div class="carousel-inner" style="width: 100%">
+					<!--슬라이드1, 슬라이드 반복문으로 돌려야 됨-->
 					<c:forEach items="${imgNames}" var="img" varStatus="status">
 						<c:choose>
 							<c:when test="${status.index == 0}">
@@ -155,22 +156,6 @@ $(function() {
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
-					<!--슬라이드1, 슬라이드 반복문으로 돌려야 됨-->
-					<%-- 						<div class="item active">
-						<img src="${rootPath}/img/${location.id}/${imgNames[0]}"
-							style="width: 100%" alt="First slide">
-						<div class="container"></div>
-					</div>
-					<!--슬라이드1-->
-
-					<!--슬라이드2-->
-					<div class="item">
-						<img src="${rootPath}/img/${location.id}/${imgNames[1]}"
-							style="width: 100%" data-src="" alt="Second slide">
-						<div class="container"></div>
-					</div>
---%>
-					<!--슬라이드2-->
 				</div>
 
 				<!--이전, 다음 버튼-->
@@ -182,7 +167,6 @@ $(function() {
 					class="glyphicon glyphicon-chevron-right"></span>
 				</a>
 			</div>
-			<%-- <jsp:useBean id="pdto" class="project.model.dto.PlaceDTO"></jsp:useBean> --%>
 			<div class="cnt-info">
 				<ul id="cnt-linfo">
 
