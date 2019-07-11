@@ -59,19 +59,13 @@
 		
 		/** 별찍기 함수 */
 		function printStar(rating) {
-			var str = ''
+			var str = '';
 			for(i=0 ; i < rating ; i++){
 				str += '<img src="${rootPath}/img/ico_star_big.png" style="width:10px; height:10px">'
 			}
-			return str
-		} // 별찍기 함수
-		
-		////////////////////////////////////////////////
-		// 레이팅 불러오기
-		function loadRating() {
-			
-		} // 레이팅 불러오기 ajax 종료
-		
+			return str;
+		}
+
 		////////////////////////////////////////////////
 		// 코멘트 등록하기
 		$(document).on('click','#btnSubmit', function() {
