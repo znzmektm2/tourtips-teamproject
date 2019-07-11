@@ -25,16 +25,16 @@ public class UpdateController implements Controller {
 		String userPwd = request.getParameter("password");
 		String userName = request.getParameter("name");
 		String userEmail = request.getParameter("email");
-		String returnURL = request.getParameter("returnURL");
 
 		UserDTO user = new UserDTO(userId, userPwd, userName, userEmail);
 		
 		try {
 			UserService.update(user);
-			url = returnURL;
+			request.getSession().setAttribute("sessionUser", user);
+			url = "/index.jsp";
 			mv.setRedirect(true);
 		} catch (SQLException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 			request.setAttribute("erorMsg", e.getMessage());
 		}
 

@@ -83,6 +83,7 @@ public class UserService {
 			throw new SQLException("일치하지 않는 비밀번호 입니다");
 		}
 		int result = dao.update(user);
+		System.out.println(result);
 		if (result == 0) {
 			throw new SQLException("업데이트에 실패 했습니다.");
 		}
