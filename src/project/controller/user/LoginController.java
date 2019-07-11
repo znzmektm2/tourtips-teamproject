@@ -34,6 +34,7 @@ public class LoginController implements Controller {
 			HttpSession session = request.getSession();
 			session.setAttribute("sessionUser", user);
 			url = returnURL;
+			mv.setRedirect(true);
 		} catch (SQLException e) {
 			// e.printStackTrace();
 			request.setAttribute("errorMsg", e.getMessage());

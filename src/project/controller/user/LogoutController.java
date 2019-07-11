@@ -21,14 +21,12 @@ public class LogoutController implements Controller {
 		HttpSession session = request.getSession();
 		try {
 			session.invalidate();
-			url = request.getContextPath() + "/index.jsp";
+			url = "/index.jsp";
 		}catch(Exception e) {
 			//e.printStackTrace();
 			request.setAttribute("erroMsg", e.getMessage());
 		}
-		
 		mv.setPath(url);
 		return mv;
 	}
-
 }
