@@ -59,8 +59,8 @@ public class UserService {
 	public static boolean idCheck(String id) throws SQLException {
 		boolean result = dao.idCheck(id);
 
-		if (result == false) {
-			throw new SQLException("으아아아아아아아아아아!!!!!!");
+		if (result) {
+			throw new SQLException("중복된 아이디입니다.");
 		}
 		return result;
 	}
