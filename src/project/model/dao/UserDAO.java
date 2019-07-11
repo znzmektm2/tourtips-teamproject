@@ -141,32 +141,4 @@ public class UserDAO {
 		}
 		return result;
 	}
-
-
-	public boolean loginCheck(String userId, String password) {
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		String sql = "select password FROM userlist WHERE user_Id=?";
-		String dbPW = "";
-		try {
-			con = DbUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			ps.setString(1, userId);
-			rs = ps.executeQuery();
-			if (rs.next()) {
-				dbPW = rs.getString("password");
-				System.out.println("dbPw:" + dbPW);
-				System.out.println("pw:" + password);
-				if (dbPW.equals(password)) {
-					return true;
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DbUtil.dbClose(rs, ps, con);
-		}
-		return false;
-	}
 }

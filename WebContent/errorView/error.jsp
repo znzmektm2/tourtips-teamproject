@@ -12,7 +12,7 @@
 	<div class="innerWrap mainWrap">
 		죄송합니다. 문제가 발생하였습니다.<br> 발생된 문제 : ${requestScope.errorMsg}<br>
 
-		<a href="${rootPath}/index.jsp"> 리스트로 돌아가기</a>
+		<a href="${rootPath}/index.jsp"> 메인으로 돌아가기</a>
 		<a href="javascript:history.back()">뒤로가기</a>
 	</div>
 	<%@ include file="/footer.jsp"%>

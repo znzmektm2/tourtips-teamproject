@@ -28,25 +28,17 @@ public class LoginController implements Controller {
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
 		String returnURL = request.getParameter("returnURL");
-		
+
 		try {
-			if (UserService.LogIn(userId, userPwd)) {
-				UserDTO user = UserService.selectById(userId);
-				HttpSession session = request.getSession();
-				session.setAttribute("sessionUser", user);
-				url = returnURL;
-			} else {
-				PrintWriter out = response.getWriter();
-				out.println("<script>");
-				out.println("alert('회원정보가 맞지않습니다.')");
-				out.println("</script>");
-				out.println("history.back()");
-			}
+			UserDTO user = UserService.LogIn(userId, userPwd);
+			HttpSession session = request.getSession();
+			session.setAttribute("sessionUser", user);
+			url = returnURL;
 		} catch (SQLException e) {
+			// e.printStackTrace();
 			request.setAttribute("errorMsg", e.getMessage());
 		}
 		mv.setPath(url);
-		mv.setRedirect(true);
 		return mv;
 	}
 }
