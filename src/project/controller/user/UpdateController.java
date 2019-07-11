@@ -31,10 +31,10 @@ public class UpdateController implements Controller {
 		
 		try {
 			UserService.update(user);
-
 			url = returnURL;
 			mv.setRedirect(true);
 		} catch (SQLException e) {
+			//e.printStackTrace();
 			request.setAttribute("erorMsg", e.getMessage());
 		}
 

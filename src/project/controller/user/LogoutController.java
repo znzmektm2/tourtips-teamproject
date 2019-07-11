@@ -23,11 +23,11 @@ public class LogoutController implements Controller {
 			session.invalidate();
 			url = request.getContextPath() + "/index.jsp";
 		}catch(Exception e) {
+			//e.printStackTrace();
 			request.setAttribute("erroMsg", e.getMessage());
 		}
 		
 		mv.setPath(url);
-		mv.setRedirect(true);
 		return mv;
 	}
 

@@ -20,7 +20,7 @@ import project.model.service.CommentServiceImpl;
 
 @SuppressWarnings("serial")
 @WebServlet("/CommentSelectByPlace")
-public class CommentSelectByPlaceServlet extends HttpServlet {
+public class CommentSelectByPlace extends HttpServlet {
 
 	private CommentService service = CommentServiceImpl.getInstance();
 
