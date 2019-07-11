@@ -20,30 +20,31 @@ import project.model.service.CommentServiceImpl;
 
 @SuppressWarnings("serial")
 @WebServlet("/CommentSelectByPlace")
-public class CommentSelectByPlaceServlet extends HttpServlet {
+public class CommentSelectByPlace extends HttpServlet {
 
 	private CommentService service = CommentServiceImpl.getInstance();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("CommentSelectByPlaceServletCalled");
+//		System.out.println("CommentSelectByPlaceServletCalled");
 		String placeId = request.getParameter("placeId");
 
 		try {
 			List<CommentDTO> list = service.selectByPlaceId(Integer.parseInt(placeId));
 			int[] rating = service.ratings(Integer.parseInt(placeId));
-			
+
 			JSONArray jsonArr = JSONArray.fromObject(list);
 			JSONObject finalObj = new JSONObject();
-			finalObj.put("list",jsonArr);
+			finalObj.put("list", jsonArr);
 			finalObj.put("ratings", JSONArray.fromObject(rating));
-			System.out.println(jsonArr);
-			System.out.println(finalObj);
+//			System.out.println(jsonArr);
+//			System.out.println(finalObj);
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println(finalObj);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			request.setAttribute("errorMsg", e.getMessage());
+			request.getRequestDispatcher("/errorView/error.jsp").forward(request, response);
 		}
 	}
 }

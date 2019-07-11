@@ -37,7 +37,7 @@
 	<%@ include file="/header.jsp"%>
 	<div class="innerWrap signWrap">
 		<div class="form">
-			<h2>회원정보 수정</h2>
+			<h2>MY PAGE</h2>
 			<form name="writeForm" method="post" action="${rootPath}/join?command=update" onSubmit='return checkValid()'>
 				<div>
 					<label>아이디</label>

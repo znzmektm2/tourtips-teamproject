@@ -2,7 +2,7 @@ package project.model.dto;
 
 public class CityDTO {
   
-    private String id;
+    private String cityId;
     private String name;
     private String region;
     private int localTime;
@@ -13,9 +13,9 @@ public class CityDTO {
     public CityDTO() {
 	}
 
-	public CityDTO(String id, String name, String region, int localTime, String bestSeason, String voltage,
+	public CityDTO(String cityId, String name, String region, int localTime, String bestSeason, String voltage,
 			String visaStatus) {
-		this.id = id;
+		this.cityId = cityId;
 		this.name = name;
 		this.region = region;
 		this.localTime = localTime;
@@ -24,12 +24,12 @@ public class CityDTO {
 		this.visaStatus = visaStatus;
 	}
 
-	public String getId() {
-		return id;
+	public String getCityId() {
+		return cityId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setCityId(String cityId) {
+		this.cityId = cityId;
 	}
 
 	public String getName() {
@@ -78,5 +78,11 @@ public class CityDTO {
 
 	public void setVisaStatus(String visaStatus) {
 		this.visaStatus = visaStatus;
+	}
+
+	@Override
+	public String toString() {
+		return "CityDTO [cityId=" + cityId + ", name=" + name + ", region=" + region + ", localTime=" + localTime
+				+ ", bestSeason=" + bestSeason + ", voltage=" + voltage + ", visaStatus=" + visaStatus + "]";
 	}
 }

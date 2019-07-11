@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <script>
 	function checkValid() {
 		var f = window.document.writeForm;
@@ -32,6 +34,31 @@
 		return true;
 	}
 </script>
+<script type="text/javascript">
+	$(function(){
+		var f = window.document.writeForm;
+		//id 중복체크
+		$(f.userId).keyup(function() {
+			if($(this).val() == "") {
+				return;
+			}
+			
+			$.ajax({
+				type : "post",
+				url : "../userIdCheck",//"../IdCheckController"
+				dataType : "text",
+				data : "userId=" + $(this).val(),
+				success : function(result) {
+					$("#userIdCheck").text(result);
+				},
+				error : function(error) {
+					console.log(error + "오류 발생");
+				}
+			
+			})
+		})
+	})
+</script>
 </head>
 <body>
 	<%@ include file="/header.jsp"%>
@@ -41,7 +68,7 @@
 			<form name="writeForm" method="post" action="${rootPath}/join?command=insert" onSubmit='return checkValid()'>
 				<div>
 					<label>아이디</label>
-					<div><input type=text name="userId" maxlength=10></div>
+					<div><input type=text name="userId" maxlength=10><span id="userIdCheck"></span></div>
 				</div>
 				<div>
 					<label>비밀번호</label>

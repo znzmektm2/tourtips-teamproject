@@ -15,9 +15,14 @@ public class UserService {
 	 * @return
 	 * @throws SQLException
 	 */
-	public static boolean LogIn(String userId, String userPwd) throws SQLException {
-		
-		return dao.loginCheck(userId, userPwd);
+	public static UserDTO LogIn(String userId, String userPwd) throws SQLException {
+		UserDTO selected = dao.selectById(userId);
+		if(selected != null && userId.equals(selected.getName()) && userPwd.equals(selected.getPassword()) ) {
+			return selected;
+		} else {
+			throw new SQLException("회원정보가 맞지 않습니다.");
+		}
+		//return dao.loginCheck(userId, userPwd);
 	}
 	
 	/**
@@ -58,9 +63,8 @@ public class UserService {
 	 */
 	public static boolean idCheck(String id) throws SQLException {
 		boolean result = dao.idCheck(id);
-
-		if (result == false) {
-			throw new SQLException("으아아아아아아아아아아!!!!!!");
+		if (result) {
+			throw new SQLException("중복된 아이디입니다.");
 		}
 		return result;
 	}
