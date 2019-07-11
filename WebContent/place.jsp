@@ -43,7 +43,7 @@
 					$('#reviewCount').text(count);
 					
 					var total = (result.ratings[0]*1 + result.ratings[1]*2 + result.ratings[2]*3 + result.ratings[3]*4 + result.ratings[4]*5)/count
-					$('#totalRating').text(total.toFixed(1));					
+					$('#totalRating,.star').text(total.toFixed(1));					
 
 					$('#rating1').text(result.ratings[0]);
 					$('#rating2').text(result.ratings[1]);

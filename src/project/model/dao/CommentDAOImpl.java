@@ -33,7 +33,6 @@ public class CommentDAOImpl implements CommentDAO {
 				CommentDTO co = new CommentDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getInt(5), rs.getString(6));
 				list.add(co);
-				System.out.println(co);
 			}
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
