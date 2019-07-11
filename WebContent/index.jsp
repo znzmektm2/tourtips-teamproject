@@ -118,13 +118,14 @@
 </body>
 <script>
 	$(function() {
-		var count=0;
+		//메인 이미지 로테이션
+		$(".mainBg ul li").eq(0).addClass("active");
+		var count=1;
 		setInterval(() => {
 			$(".mainBg ul li").eq(count).addClass("active").siblings().removeClass("active");
 			count++;
 			if(count == $(".mainBg ul li").length) count=0;
-		}, 5000);
-		
+		}, 7000);
 	});
 </script>
 </html>
