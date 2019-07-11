@@ -24,7 +24,7 @@
 		<section class="spotList best">
 			<div>
 				<span>TOURTIPS BEST DEALS</span>
-				<h2 class="title">투어팁스에서에 가장<br>사랑받은 여행이에요</h2>
+				<h2 class="title">투어팁스에서<br>추천하는 여행지에요</h2>
 				<ul>
 					<li>
 						<a href="#;">
@@ -36,14 +36,6 @@
 								<span class="category">전망대</span>
 								<strong class="title">IFC몰 55층 전망대</strong>
 								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
-								<div class="star">
-									<span class="on"></span>
-									<span class="on"></span>
-									<span class="on"></span>
-									<span></span>
-									<span></span>
-									4.2
-								</div>
 							</div>
 						</a>
 					</li>
@@ -57,14 +49,6 @@
 								<span class="category">전망대</span>
 								<strong class="title">IFC몰 55층 전망대</strong>
 								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
-								<div class="star">
-									<span class="on"></span>
-									<span class="on"></span>
-									<span class="on"></span>
-									<span></span>
-									<span></span>
-									4.2
-								</div>
 							</div>
 						</a>
 					</li>
@@ -78,14 +62,6 @@
 								<span class="category">전망대</span>
 								<strong class="title">IFC몰 55층 전망대</strong>
 								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
-								<div class="star">
-									<span class="on"></span>
-									<span class="on"></span>
-									<span class="on"></span>
-									<span></span>
-									<span></span>
-									4.2
-								</div>
 							</div>
 						</a>
 					</li>
@@ -99,14 +75,6 @@
 								<span class="category">전망대</span>
 								<strong class="title">IFC몰 55층 전망대</strong>
 								<p class="txt">통유리로 바라본 전망대와 화폐박물관</p>
-								<div class="star">
-									<span class="on"></span>
-									<span class="on"></span>
-									<span class="on"></span>
-									<span></span>
-									<span></span>
-									4.2
-								</div>
 							</div>
 						</a>
 					</li> 
