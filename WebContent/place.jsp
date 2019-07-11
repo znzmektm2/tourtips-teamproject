@@ -25,16 +25,6 @@ $(function() {
 				var count = 0
 				$(result.list).each(
 						function(index, item) {
-							/* <li>
-								<div>
-									<strong>sdfsdfsdf</strong>
-									<div class="star">
-										<span></span><span></span><span></span><span></span><span></span>
-									</div>
-									<p>sdfsdfsdfsdfsdfsdfs f sd fs df</p>
-									<span class="time">123:!23:!23</span>
-								</div>
-							</li> */
 							list += '<li><div><strong>' + item.userId + '</strong>'
 									+ '<div class="star">' + printStar(item.rating) + '</div>'
 									+ '<p>' + item.context + '</p>'
@@ -80,10 +70,10 @@ $(function() {
 		var str = '';
 		var graystar = 5-rating;
 		for(i=0 ; i < rating ; i++){
-			str += '<span class="on"></span>'
+			str += '<span class="on"></span>';
 		}
 		for(i=0 ; i < graystar ; i++){
-			str += '<span></span>'
+			str += '<span></span>';
 		}
 		return str;
 	}
