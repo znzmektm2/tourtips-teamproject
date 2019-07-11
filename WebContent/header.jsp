@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="${rootPath}/img/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="${rootPath}/css/style.css" />
 <script type="text/javascript" src="${rootPath}/js/jquery-3.4.1.min.js"></script>
 <title>Insert title here</title>
@@ -31,10 +30,12 @@
 						<a href="${rootPath}/login/signInForm.jsp">회원가입</a>
 					</c:when>
 					<c:otherwise>
-						<p>${sessionUser.name}씨 할로~</p>
-						<a href="${rootPath}/join?command=logout">로그아웃</a>
-						<span>|</span>
-						<a href="${rootPath}/login/updateUser.jsp">회원정보</a>
+						<div>
+							<p>${sessionUser.name}님</p>
+							<a href="${rootPath}/join?command=logout">로그아웃</a>
+							<span>|</span>
+							<a href="${rootPath}/login/updateUser.jsp">마이페이지</a>
+						</div>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -74,7 +75,6 @@
 			</ul>
 		</nav>
 	</header>
-</body>
 <script>
 $(function() {
 	//상단메뉴 활성화
@@ -87,4 +87,3 @@ $(function() {
 	});
 });
 </script>
-</html>
