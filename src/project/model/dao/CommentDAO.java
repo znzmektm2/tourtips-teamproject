@@ -32,4 +32,14 @@ public interface CommentDAO {
 	 */
 	int delete(String commentId) throws SQLException;
 	
+	/**
+	 * SELECT  COUNT(CASE WHEN RATING=1 THEN 1 END) ONE, COUNT(CASE WHEN RATING=2 THEN 1 END) TWO,
+	 * COUNT(CASE WHEN RATING=3 THEN 1 END) THREE, COUNT(CASE WHEN RATING=4 THEN 1 END) FOUR,
+	 * COUNT(CASE WHEN RATING=5 THEN 1 END) FIVE FROM COMMENTLIST WHERE PLACE_ID=1;
+	 * @param placeId
+	 * @return
+	 * @throws SQLException
+	 */
+	int[] ratings(int placeId) throws SQLException;
+	
 }

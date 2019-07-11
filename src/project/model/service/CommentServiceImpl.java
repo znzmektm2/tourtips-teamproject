@@ -34,4 +34,10 @@ public class CommentServiceImpl implements CommentService {
 		int result = dao.delete(commentId);
 		return result;
 	}
+
+	@Override
+	public int[] ratings(int placeId) throws SQLException {
+		int[] result = dao.ratings(placeId);
+		return result;
+	}
 }
