@@ -91,8 +91,9 @@ public class UserDAO {
 	 * 중복체크
 	 * @param id
 	 * @return
+	 * @throws SQLException 
 	 */
-	public boolean idCheck(String id) {
+	public boolean idCheck(String id) throws SQLException {
 
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -107,8 +108,6 @@ public class UserDAO {
 			while (rs.next()) {
 				result = true;
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}

@@ -63,8 +63,7 @@ public class UserService {
 	 */
 	public static boolean idCheck(String id) throws SQLException {
 		boolean result = dao.idCheck(id);
-		System.out.println(result);
-		if (result == false) {
+		if (result) {
 			throw new SQLException("중복된 아이디입니다.");
 		}
 		return result;
