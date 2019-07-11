@@ -17,7 +17,7 @@
 		</div>
 		<div class="textWrap">
 			<h2>${location.name}</h2>
-			<p><span class="time">15:15:32</span> 시차 <span>${location.localTime}</span>시간</p>
+			<p><span class="time">15:15:32</span><br>시차 <span>${location.localTime}</span>시간</p>
 			<ul>
 				<li>
 					<dl>
@@ -77,7 +77,7 @@ $(function() {
 	//타이머
 	function startTime() {
 	    var today = new Date();
-	    var h = today.getHours();
+	    var h = today.getHours() + ${location.localTime};
 	    var m = today.getMinutes();
 	    var s = today.getSeconds();
 	    h = checkTime(h);
@@ -87,6 +87,9 @@ $(function() {
 	    var t = setTimeout(startTime, 500);
 	}
 	function checkTime(i) {
+		if(i< 0) {
+			i = 24 + i;
+		}
 	    if (i < 10) {i = "0" + i}; // 숫자가 10보다 작을 경우 앞에 0을 붙여줌
 	    return i;
 	}
