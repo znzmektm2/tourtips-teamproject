@@ -107,6 +107,29 @@ $(function() {
 			$(".starInput div").eq(i).addClass("on");
 		}
 	});
+	
+	//lnb 메뉴 fixed
+	var headerH = $(".headerTop").height() + $("nav").height();
+	var lnbH = $(".lnb").height();
+	var contentH = $(".content").height();
+	var num = 100;
+	setTimeout(() => {
+		contentH = $(".content").height();
+	}, 2000);
+	var wing_movement = function (){
+        sTop = $(window).scrollTop();
+        if (sTop >= headerH+110 && sTop < ((headerH+contentH)-lnbH-num)){
+            $(".lnb").css({'top':sTop-(headerH-20)});
+        } else if(sTop >= ((headerH+contentH)-lnbH-num)){
+        	$(".lnb").css({'top':((contentH)-lnbH-num)});
+        } else{
+        	$(".lnb").css({'top':'110px'});
+        }
+    };
+    $(window).scroll(function(){
+        wing_movement();
+    });
+	
 	loadBoard();
 });
 </script>

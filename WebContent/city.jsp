@@ -50,14 +50,6 @@
 								<span class="category">${popularLocation.category}</span>
 								<strong class="title">${popularLocation.name}</strong>
 								<p class="txt">${popularLocation.text}</p>
-								<div class="star">
-									<span class="on"></span>
-									<span class="on"></span>
-									<span class="on"></span>
-									<span></span>
-									<span></span>
-									4.2
-								</div>
 							</div>
 						</a>
 					</li> 
@@ -91,5 +83,40 @@ $(function() {
 	    return i;
 	}
 	startTime();
+	
+	//lnb 메뉴 fixed
+	var headerH = $(".headerTop").height() + $("nav").height();
+	var lnbH = $(".lnb").height();
+	var visualWrapH = $(".visualWrap").height();
+	var contentH = $(".content").height();
+	var num = 100;
+	setTimeout(() => {
+		contentH = $(".content").height();
+	}, 2000);
+	var wing_movement = function (){
+        sTop = $(window).scrollTop();
+        if (sTop >= headerH+visualWrapH+110 && sTop < ((headerH+visualWrapH+contentH)-lnbH-num)){
+            $(".lnb").css({'top':sTop-(headerH+visualWrapH-20)});
+        } else if(sTop >= ((headerH+visualWrapH+contentH)-lnbH-num)){
+        	$(".lnb").css({'top':((contentH)-lnbH-num)});
+        } else{
+        	$(".lnb").css({'top':'110px'});
+        }
+    };
+    $(window).scroll(function(){
+        wing_movement();
+    });
+    
+ 	//lnb 메뉴 활성화
+	$('.lnb>ul>li').click(function() {
+		var index = $(this).index();
+		$(this).toggleClass('active').siblings().removeClass('active');
+		$(".spotList>div").eq(index-1).show().siblings().hide();
+		if(index == 0){
+			$(".spotList>div").show();
+		}
+	});
+ 	
+	$('.lnb>ul>li>a').attr("href", "javascript:;");
 });
 </script>
