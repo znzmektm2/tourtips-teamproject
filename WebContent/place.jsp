@@ -118,7 +118,7 @@ $(function() {
 	}, 2000);
 	var wing_movement = function (){
         sTop = $(window).scrollTop();
-        if (sTop >= headerH+110 && sTop < ((headerH+contentH)-lnbH-num)){
+        if (sTop >= headerH+90 && sTop < ((headerH+contentH)-lnbH-num)){
             $(".lnb").css({'top':sTop-(headerH-20)});
         } else if(sTop >= ((headerH+contentH)-lnbH-num)){
         	$(".lnb").css({'top':((contentH)-lnbH-num)});
@@ -129,7 +129,7 @@ $(function() {
     $(window).scroll(function(){
         wing_movement();
     });
-	
+    
 	loadBoard();
 });
 </script>
