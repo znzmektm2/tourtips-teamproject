@@ -29,6 +29,7 @@
 					<li>
 						<a href="${rootPath}/dest/HONGKONG/1">
 							<span class="thumb">
+								<span class="loc">HONGKONG</span>
 								<img src="${rootPath}/img/1/1.jpg" alt="">
 								<span class="cover"></span>
 							</span>
@@ -42,6 +43,7 @@
 					<li>
 						<a href="${rootPath}/dest/SINGAPORE/23">
 							<span class="thumb">
+							<span class="loc">SINGAPORE</span>
 								<img src="${rootPath}/img/23/1.jpg" alt="">
 								<span class="cover"></span>
 							</span>
@@ -55,6 +57,7 @@
 					<li>
 						<a href="${rootPath}/dest/PARIS/22">
 							<span class="thumb">
+								<span class="loc">PARIS</span>
 								<img src="${rootPath}/img/22/1.jpg" alt="">
 								<span class="cover"></span>
 							</span>
@@ -68,6 +71,7 @@
 					<li>
 						<a href="${rootPath}/dest/NEWYORK/83">
 							<span class="thumb">
+								<span class="loc">NEWYORK</span>
 								<img src="${rootPath}/img/83/1.jpg" alt="">
 								<span class="cover"></span>
 							</span>
@@ -81,6 +85,7 @@
 					<li>
 						<a href="${rootPath}/dest/MACAU/12">
 							<span class="thumb">
+								<span class="loc">MACAU</span>
 								<img src="${rootPath}/img/12/1.jpg" alt="">
 								<span class="cover"></span>
 							</span>
@@ -94,6 +99,7 @@
 					<li>
 						<a href="${rootPath}/dest/BANGKOK/60">
 							<span class="thumb">
+								<span class="loc">BANGKOK</span>
 								<img src="${rootPath}/img/60/1.jpg" alt="">
 								<span class="cover"></span>
 							</span>
@@ -107,6 +113,7 @@
 					<li>
 						<a href="${rootPath}/dest/PARIS/24">
 							<span class="thumb">
+								<span class="loc">PARIS</span>
 								<img src="${rootPath}/img/24/1.jpg" alt="">
 								<span class="cover"></span>
 							</span>
@@ -120,6 +127,7 @@
 					<li>
 						<a href="${rootPath}/dest/NEWYORK/85">
 							<span class="thumb">
+								<span class="loc">NEWYORK</span>
 								<img src="${rootPath}/img/85/1.jpg" alt="">
 								<span class="cover"></span>
 							</span>
