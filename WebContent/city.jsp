@@ -36,7 +36,7 @@
 	<div class="content">
 		<section class="spotList">
 			<c:forEach items="${popular}" var="popularMenus" varStatus="state">
-			<div>
+			<div id="tab${state.index}">
 				<h3>${popularMenus.menu}</h3>
 				<ul>
 					<c:forEach items="${popularMenus.popularLocations}" var="popularLocation">
@@ -108,15 +108,15 @@ $(function() {
     });
     
  	//lnb 메뉴 활성화
-	$('.lnb>ul>li').click(function() {
+/* 	$('.lnb>ul>li').click(function() {
 		var index = $(this).index();
 		$(this).toggleClass('active').siblings().removeClass('active');
 		$(".spotList>div").eq(index-1).show().siblings().hide();
 		if(index == 0){
 			$(".spotList>div").show();
 		}
-	});
+	}); 
  	
-	$('.lnb>ul>li>a').attr("href", "javascript:;");
+	$('.lnb>ul>li>a').attr("href", "javascript:;");*/
 });
 </script>

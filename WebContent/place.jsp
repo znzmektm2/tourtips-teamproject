@@ -129,7 +129,7 @@ $(function() {
     $(window).scroll(function(){
         wing_movement();
     });
-	
+    
 	loadBoard();
 });
 </script>
