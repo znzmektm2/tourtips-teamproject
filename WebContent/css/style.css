@@ -122,6 +122,8 @@ font-size:12px;font-weight: bold;color: #f06c5e;border: 2px dotted #f06c5e;borde
 .spotList.best ul{margin-top:40px;padding-top: 25px;}
 .spotList.best ul>li{width:25%;}
 .spotList.best>div>ul>li .info .title{color: #f06c5e;}
+.spotList.best>div>ul>li .loc{position: absolute;top: 20px;left: 0;z-index: 1;display: inline-block;min-width: 41px;height: 28px;
+padding: 0 12px;box-sizing: border-box;border-radius:0 8px 8px 0;background:linear-gradient(-91deg, #f06c5e 20%, #f06c5e 20%,#bf1f07);color: #fff;line-height: 28px;font-size: 12px;}
     
 /* visualWrap */
 .visualWrap{position:relative;text-align: center;}
