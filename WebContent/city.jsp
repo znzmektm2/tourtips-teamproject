@@ -36,8 +36,13 @@
 	<div class="content">
 		<section class="spotList">
 			<c:forEach items="${popular}" var="popularMenus" varStatus="state">
+<<<<<<< HEAD
 			<div id="tab${state.index}">
 				<h3>${popularMenus.menu}</h3>
+=======
+			<div>
+				<h3 id="${state.index}">${popularMenus.menu}</h3>
+>>>>>>> refs/heads/gf
 				<ul>
 					<c:forEach items="${popularMenus.popularLocations}" var="popularLocation">
 					<li>
@@ -117,6 +122,10 @@ $(function() {
 		}
 	}); 
  	
+<<<<<<< HEAD
 	$('.lnb>ul>li>a').attr("href", "javascript:;");*/
+=======
+	$('.lnb>ul>li>a').attr("href", "javascript:;"); */
+>>>>>>> refs/heads/gf
 });
 </script>
