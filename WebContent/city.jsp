@@ -38,19 +38,20 @@
 			<c:forEach items="${popular}" var="popularMenus" varStatus="state">
 			<div>
 				<h3 id="${state.index}">${popularMenus.menu}</h3>
+
 				<ul>
 					<c:forEach items="${popularMenus.popularLocations}" var="popularLocation">
 					<li>
 						<a href="./${location.cityId}/${popularLocation.placeId}">
-							<div class="thumb">
+							<span class="thumb">
 								<img src="../img/${popularLocation.placeId}/1.jpg" alt="">
 								<span class="cover"></span>
-							</div>
-							<div class="info">
+							</span>
+							<span class="info">
 								<span class="category">${popularLocation.category}</span>
 								<strong class="title">${popularLocation.name}</strong>
 								<p class="txt">${popularLocation.text}</p>
-							</div>
+							</span>
 						</a>
 					</li> 
 					</c:forEach>
@@ -95,7 +96,7 @@ $(function() {
 	}, 2000);
 	var wing_movement = function (){
         sTop = $(window).scrollTop();
-        if (sTop >= headerH+visualWrapH+110 && sTop < ((headerH+visualWrapH+contentH)-lnbH-num)){
+        if (sTop >= headerH+visualWrapH+90 && sTop < ((headerH+visualWrapH+contentH)-lnbH-num)){
             $(".lnb").css({'top':sTop-(headerH+visualWrapH-20)});
         } else if(sTop >= ((headerH+visualWrapH+contentH)-lnbH-num)){
         	$(".lnb").css({'top':((contentH)-lnbH-num)});
@@ -107,16 +108,5 @@ $(function() {
         wing_movement();
     });
     
- 	//lnb 메뉴 활성화
-/* 	$('.lnb>ul>li').click(function() {
-		var index = $(this).index();
-		$(this).toggleClass('active').siblings().removeClass('active');
-		$(".spotList>div").eq(index-1).show().siblings().hide();
-		if(index == 0){
-			$(".spotList>div").show();
-		}
-	});
- 	
-	$('.lnb>ul>li>a').attr("href", "javascript:;"); */
 });
 </script>
