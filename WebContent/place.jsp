@@ -269,7 +269,7 @@ $(function() {
 							<div>
 								<label><span>${sessionUser.userId }</span>님의 평점 및 리뷰</label>
 								<div class="starInput">
-									<div><input type="radio" name="rating" value="1"><span></span></div>
+									<div><input type="radio" name="rating" value="1" checked><span></span></div>
 									<div><input type="radio" name="rating" value="2"><span></span></div>
 									<div><input type="radio" name="rating" value="3"><span></span></div>
 									<div><input type="radio" name="rating" value="4"><span></span></div>
