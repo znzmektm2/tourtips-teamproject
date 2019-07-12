@@ -7,13 +7,15 @@
 <link rel="shortcut icon" type="image/x-icon" href="${rootPath}/img/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="${rootPath}/css/style.css" />
 <script type="text/javascript" src="${rootPath}/js/jquery-3.4.1.min.js"></script>
-<title>Insert title here</title>
+<title>여행관광지 사이트</title>
+<script>
+</script>
 </head>
 <body>
 	<header>
 		<div class="innerWrap headerTop">
 			<div class="search">
-				<form name="search" id="search">
+				<form name="search" id="search" method="post" action="${rootPath}/SearchInput">
 					<input type="text" name="keyWord" id="keyWord" />
 					<button type="submit" name="search" id="search_btn" title="검색">검색</button>
 				</form>

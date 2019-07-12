@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 public class InitialConfigListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent sce) {
+    	System.out.println("Server Starts: contextInitialized");
         /**
          * ActionMapping.properties에 저장된 Action 클래스들을 
          * 서버가 스타트될 때 사용할 객체를 생성해서 Map 에 저장
@@ -27,8 +28,6 @@ public class InitialConfigListener implements ServletContextListener {
         ResourceBundle rb = ResourceBundle.getBundle(application.getInitParameter("fileName"));
 
         for (String key : rb.keySet()) {
-            System.out.println(key + " = " + rb.getString(key));
-
             try {
                 Controller classObj = (Controller) Class.forName(rb.getString(key)).newInstance();
                 map.put(key, classObj);

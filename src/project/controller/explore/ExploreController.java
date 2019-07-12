@@ -19,6 +19,7 @@ import project.model.dto.PopularLocationDTOWrapper;
 
 public class ExploreController implements Controller {
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -29,13 +30,10 @@ public class ExploreController implements Controller {
 
 		if (location.length == 1) {
 			Map<String, CityDTO> map = (Map<String, CityDTO>) req.getServletContext().getAttribute("CityAll");
-//			System.out.println(location[0].toUpperCase());
-//			System.out.println(map.get(location[0].toUpperCase()));
 			req.setAttribute("location", map.get(location[0].toUpperCase()));
 			modelAndView.setPath("/city.jsp");
 			
 			setPopularLocationByMenu(req, location[0].toUpperCase());
-//			System.out.println(popularMap);
 		} else if (location.length == 2) {
 			Map<String, PlaceDTO> map = (Map<String, PlaceDTO>) req.getServletContext().getAttribute("PlaceAll");
 			req.setAttribute("location", map.get(location[1]));
@@ -43,7 +41,6 @@ public class ExploreController implements Controller {
 			
 			File imgs = new File(req.getServletContext().getRealPath("/img/" + location[1]));
 			String[] names = imgs.list();
-			//System.out.println(name[1]);
 			req.setAttribute("imgNames", names);
 			modelAndView.setPath("/place.jsp");
 		} else {
@@ -72,7 +69,6 @@ public class ExploreController implements Controller {
 			popularLocationWrapper.getPopularLocations().add(popularLocationDTO);
 		}
 
-		//System.out.println("confirm: " + popularMapByMenu);
 		req.setAttribute("popular", popularMapByMenu.values());
 	}
 
