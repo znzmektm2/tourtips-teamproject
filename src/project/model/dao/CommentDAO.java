@@ -42,4 +42,9 @@ public interface CommentDAO {
 	 */
 	int[] ratings(int placeId) throws SQLException;
 	
+	/**
+	 * @return
+	 * @throws SQLException 
+	 */
+	List<CommentDTO> selectAll() throws SQLException;
 }

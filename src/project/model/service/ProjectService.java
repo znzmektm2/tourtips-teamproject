@@ -62,4 +62,19 @@ public class ProjectService {
 			return null;
 		}
 	}
+	
+	public Map<String, PopularLocationDTO> selectAllPopularByPlaceId() {
+		try {
+			List<PopularLocationDTO> popularList = dao.selectAllPopular();
+			Map<String, PopularLocationDTO> result = new HashMap<>();
+			
+			for(PopularLocationDTO dto : popularList) {
+				result.put(dto.getPlaceId(), dto);
+			}
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

@@ -26,7 +26,24 @@
 				<span>TOURTIPS BEST DEALS</span>
 				<h2 class="title">투어팁스에서<br>추천하는 여행지에요</h2>
 				<ul>
-					<li>
+					<c:forEach items="${placeRatings}" var="place" begin="0" end="7">
+						<li>
+							<a href="${rootPath}/dest/${place.cityId}/${place.placeId}">
+								<span class="thumb">
+									<span class="loc">${place.cityId}</span>
+									<img src="${rootPath}/img/${place.placeId}/1.jpg" alt="">
+									<span class="cover"></span>
+								</span>
+								<span class="info">
+									<span class="category">${place.category}</span>
+									<strong class="title">${place.name}</strong>
+									<p class="txt">${place.text}</p>
+									<p>${place.avg}</p>
+								</span>
+							</a>
+						</li>
+					</c:forEach>
+					<%-- <li>
 						<a href="${rootPath}/dest/HONGKONG/1">
 							<span class="thumb">
 								<span class="loc">HONGKONG</span>
@@ -137,7 +154,7 @@
 								<p class="txt">세계 뮤지컬이 한 자리에 모인 뉴욕의 랜드마크 거리</p>
 							</span>
 						</a>
-					</li>
+					</li> --%>
 				</ul>
 			</div>
 		</section>

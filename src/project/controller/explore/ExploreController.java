@@ -53,8 +53,8 @@ public class ExploreController implements Controller {
 	private void setPopularLocationByMenu(HttpServletRequest req, String key) {
 		Map<String, List<PopularLocationDTO>> popularMap = (Map<String, List<PopularLocationDTO>>) req
 				.getServletContext().getAttribute("PopularAll");
-		Map<String, PopularLocationDTOWrapper> popularMapByMenu = new HashMap<>();
 		List<PopularLocationDTO> popularLocations = popularMap.get(key);
+		Map<String, PopularLocationDTOWrapper> popularMapByMenu = new HashMap<>();
 
 		if (popularLocations == null) {
 			return;

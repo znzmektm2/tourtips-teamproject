@@ -104,6 +104,7 @@ $(function() {
         	$(".lnb").css({'top':'110px'});
         }
     };
+    wing_movement();
     $(window).scroll(function(){
         wing_movement();
     });

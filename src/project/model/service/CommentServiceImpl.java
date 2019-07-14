@@ -40,4 +40,15 @@ public class CommentServiceImpl implements CommentService {
 		int[] result = dao.ratings(placeId);
 		return result;
 	}
+
+	@Override
+	public List<CommentDTO> selectAll() {
+		try {
+			List<CommentDTO> comments = dao.selectAll();
+			return comments;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

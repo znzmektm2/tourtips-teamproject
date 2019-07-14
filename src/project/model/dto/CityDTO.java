@@ -79,7 +79,7 @@ public class CityDTO {
 	public void setVisaStatus(String visaStatus) {
 		this.visaStatus = visaStatus;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "CityDTO [cityId=" + cityId + ", name=" + name + ", region=" + region + ", localTime=" + localTime

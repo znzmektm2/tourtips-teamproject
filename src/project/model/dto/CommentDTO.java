@@ -10,6 +10,11 @@ public class CommentDTO {
 
 	public CommentDTO() {
 	}
+	
+	public CommentDTO(String placeId, int rating) {
+		this.placeId = placeId;
+		this.rating = rating;
+	}
 
 	public CommentDTO(int commentId, String placeId, String userId, String context, int rating, String dateCreated) {
 		this.commentId = commentId;

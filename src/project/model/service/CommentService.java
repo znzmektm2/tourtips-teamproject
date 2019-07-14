@@ -14,4 +14,6 @@ public interface CommentService {
 	int delete(String commentId) throws SQLException;
 	
 	int[] ratings(int placeId) throws SQLException;
+	
+	List<CommentDTO> selectAll();
 }

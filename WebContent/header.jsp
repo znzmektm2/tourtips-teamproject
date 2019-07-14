@@ -54,7 +54,6 @@
 					<ul>
 						<li><a href="${rootPath}/dest/hongkong"><img src="${rootPath}/img/menu_icon/HONGKONG.gif" alt="">홍콩</a></li>
 						<li><a href="${rootPath}/dest/macau"><img src="${rootPath}/img/menu_icon/MACAU.gif" alt="">마카오</a></li>
-
 					</ul>
 				</li>
 				<li>

@@ -7,6 +7,7 @@ public class PopularLocationDTO {
 	private String text;
 	private String placeId;
 	private String cityId;
+	private float avg;
 	
 	public PopularLocationDTO() {};
 
@@ -18,6 +19,14 @@ public class PopularLocationDTO {
 		this.text = text;
 		this.placeId = placeId;
 		this.cityId = cityId;
+	}
+
+	public float getAvg() {
+		return avg;
+	}
+
+	public void setAvg(float avg) {
+		this.avg = avg;
 	}
 
 	public String getMenu() {

@@ -112,4 +112,26 @@ public class CommentDAOImpl implements CommentDAO {
 		}
 		return result;
 	}
+
+	@Override
+	public List<CommentDTO> selectAll() throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<CommentDTO> list = new ArrayList<>();
+		String sql = "SELECT place_id, rating FROM COMMENTLIST";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				CommentDTO co = new CommentDTO(rs.getString(1), rs.getInt(2));
+				list.add(co);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+
+		return list;
+	}
 }
