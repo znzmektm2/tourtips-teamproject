@@ -50,8 +50,10 @@
 							<span class="info">
 								<span class="category">${popularLocation.category}</span>
 								<strong class="title">${popularLocation.name}</strong>
-								<p class="txt">${popularLocation.text}</p>
+								<span class="txt">${popularLocation.text}</span>
 							</span>
+							<span class="star"></span>
+							<span class="num"></span>
 						</a>
 					</li> 
 					</c:forEach>
@@ -108,6 +110,19 @@ $(function() {
     $(window).scroll(function(){
         wing_movement();
     });
+    
+    /* 별찍기 함수 */
+	function printStar(rating) {
+		var str = '';
+		var graystar = 5-rating;
+		for(i=0 ; i < rating ; i++){
+			str += '<span class="on"></span>';
+		}
+		for(i=0 ; i < graystar ; i++){
+			str += '<span></span>';
+		}
+		return str;
+	}
     
 });
 </script>
